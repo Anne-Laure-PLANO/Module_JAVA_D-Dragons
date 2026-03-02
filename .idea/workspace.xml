@@ -1,59 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="84b28d44-8e52-492d-93fd-0beb97080bf0" name="Changes" comment="" />
+    <list default="true" id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Anne-Laure-PLANO"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Anne-Laure-PLANO/Module_JAVA_D-Dragons",
-    "accountId": "13039c69-c0b9-41e4-ae63-e38941c65002"
-  }
-}]]></component>
-  <component name="McpProjectServerCommands">
-    <commands />
-    <urls />
-  </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
-  <component name="ProjectId" id="3ANx991jenVqSbykEJ69I1SWTce" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3AFiqCllqk1X68xNNi7gY0eFO3j" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_D&D/DungeonAndDragons",
+    "last_opened_file_path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_Entrainement",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "onboarding.tips.debug.path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_D&D/DungeonAndDragons/src/Main.java",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="DungeonAndDragons" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -64,12 +62,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="84b28d44-8e52-492d-93fd-0beb97080bf0" name="Changes" comment="" />
-      <created>1772446674178</created>
+      <changelist id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="" />
+      <created>1772194913787</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1772446674178</updated>
-      <workItem from="1772446675215" duration="30000" />
+      <updated>1772194913787</updated>
+      <workItem from="1772194914813" duration="5721000" />
+      <workItem from="1772207327147" duration="31000" />
+      <workItem from="1772444179951" duration="722000" />
     </task>
     <servers />
   </component>
