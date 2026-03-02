@@ -1,35 +1,29 @@
 package dungeonanddragons.entity.entityliving.hero;
 
 import dungeonanddragons.entity.entityliving.EntityLiving;
+import dungeonanddragons.entity.offensiveequipment.OffensiveEquipment;
 
 public class Hero extends EntityLiving {
-    private String name;
     private OffensiveEquipment equipment;
 
-    public Hero (String name, int atk, int pv, int position, boolean isAlive){
-        super (name, atk, pv, position, isAlive);
+    public Hero (int boardLength, String name, int atk, int pv, boolean isAlive){
+        super(boardLength, name, atk, pv, isAlive);
 
     }
 
-    public void newName (String name){
-        this.name = name;
-    }
 
-    public void getEquipment (OffensiveEquipment equipment){
-        if (this.equipment.getAtk() > equipment){
-            //boolean playerWantsToChange = askChangeEquipment();
-            if (playerWantsToChange = false) {
-                //message : equipement non changé
-            } else {
-                this.equipment = equipment;
-                //message : équipement changé
-            }
-        } else {
-            //message : équipement installé
-            this.equipment = equipment;
-
+    public void setEquipment (OffensiveEquipment equipment){
+        if (this.equipment != null){
+            unsetEquipment();
         }
+        this.equipment = equipment;
+            this.setAtk(this.getAtk() + equipment.getAtk());
+    }
+    public void unsetEquipment () {
+        int totalAtk = this.getAtk()-this.equipment.getAtk();
+        this.setAtk(totalAtk);
+        this.equipment = null;
     }
 
 
-}
+    }
