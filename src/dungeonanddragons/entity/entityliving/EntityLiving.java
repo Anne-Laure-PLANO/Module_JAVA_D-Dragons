@@ -9,8 +9,8 @@ public class EntityLiving extends Entity {
     private boolean isAlive;
 
 
-    public EntityLiving(String name, int atk, int pv, int position, boolean isAlive) {
-        super(position);
+    public EntityLiving(int boardLength, String name, int atk, int pv, boolean isAlive) {
+        super(boardLength);
         this.name = name;
         this.atk = atk;
         this.pv = pv;

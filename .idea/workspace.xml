@@ -4,11 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="" />
+    <list default="true" id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/dice/Dice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/defensiveequipment/DefensiveEquipment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/defensiveequipment/LittlePotion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Goblin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Sorcier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/offensiveequipment/OffensiveEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/EntityLiving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/EntityLiving.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Dragon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/menu/Menu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Anne-Laure-PLANO"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Anne-Laure-PLANO/Module_JAVA_D-Dragons",
+    "accountId": "7b2a2e88-5752-4f08-a351-c652688b9164"
+  }
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -22,12 +67,15 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_Entrainement",
+    "last_opened_file_path": "C:/Users/aldev/Documents/Module_java/Module_JAVA_D-Dragons",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +118,7 @@
       <workItem from="1772194914813" duration="5721000" />
       <workItem from="1772207327147" duration="31000" />
       <workItem from="1772444179951" duration="722000" />
+      <workItem from="1772473008460" duration="8998000" />
     </task>
     <servers />
   </component>

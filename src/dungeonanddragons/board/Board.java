@@ -7,9 +7,7 @@ import java.util.List;
 public class Board {
     private int boardLength;
     private int[] board ;
-    private List <Enemy> monsters ;
-    private List <Box> boxes;
-    private List <Hero> heroes;
+
 
     public void initBoard (int boardLength){
         this.boardLength = boardLength;
