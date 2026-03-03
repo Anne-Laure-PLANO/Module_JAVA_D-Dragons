@@ -5,24 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/dice/Dice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/defensiveequipment/DefensiveEquipment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/defensiveequipment/LittlePotion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Goblin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Sorcier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/offensiveequipment/OffensiveEquipment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/EntityLiving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/EntityLiving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Dragon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/dice/Dice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/Entity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/defensiveequipment/DefensiveEquipment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/defensiveequipment/LittlePotion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/EntityLiving.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Dragon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Enemy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Goblin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Sorcier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Hero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Warrior.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Wizard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/offensiveequipment/OffensiveEquipment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/game/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/menu/Menu.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +39,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Anne-Laure-PLANO"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Anne-Laure-PLANO&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Anne-Laure-PLANO/Module_JAVA_D-Dragons",
-    "accountId": "7b2a2e88-5752-4f08-a351-c652688b9164"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Anne-Laure-PLANO/Module_JAVA_D-Dragons&quot;,
+    &quot;accountId&quot;: &quot;13039c69-c0b9-41e4-ae63-e38941c65002&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -59,6 +59,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="3AFiqCllqk1X68xNNi7gY0eFO3j" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -75,7 +78,7 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/aldev/Documents/Module_java/Module_JAVA_D-Dragons",
+    "last_opened_file_path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_D&D/Module_JAVA_D-Dragons",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,6 +96,17 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Module_JAVA_D-Dragons" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Module_JAVA_D-Dragons" />
+      <option name="filePath" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
@@ -119,6 +133,8 @@
       <workItem from="1772207327147" duration="31000" />
       <workItem from="1772444179951" duration="722000" />
       <workItem from="1772473008460" duration="8998000" />
+      <workItem from="1772525207329" duration="1409000" />
+      <workItem from="1772527813372" duration="11763000" />
     </task>
     <servers />
   </component>
