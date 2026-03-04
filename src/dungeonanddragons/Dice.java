@@ -10,8 +10,9 @@ public class Dice {
 
     }
 
-    public int roll(int diceFaces){
-        return rand.nextInt(diceFaces)+1;
+    public int roll(){
+       int result = rand.nextInt(6)+1 ;
+        return result ;
     }
 
 }

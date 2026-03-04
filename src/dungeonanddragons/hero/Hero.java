@@ -7,29 +7,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hero {
+    private String pseudo;
     private String type;
     private int pv;
+    private final int maxPV;
     private int atk;
     private OffensiveEquipment equipment;
     private int position;
 
-    public Hero(String type, int pv, int atk, OffensiveEquipment equipment, int position){
+    public  Hero(String pseudo , String type, int maxPV, int atk, OffensiveEquipment equipment, int position){
+        this.pseudo = pseudo;
         this.type = type;
-        this.pv = pv;
+        this.pv = maxPV;
+        this.maxPV = maxPV;
         this.atk = atk;
         this.equipment = equipment;
         this.position = position;
 
     }
-
-    @Override
-    public String toString() {
+    @Override  //chez parent car méthode existe nativement dans classe Object
+    public  String  toString() {
         return "type='" + type + '\'' +
                 ", pv=" + pv +
                 ", atk=" + atk +
                 ", Equipment=" + equipment +
                 ", Position= " + position +
                 '}';
+    }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public void setPv(int pv) {
+        this.pv = pv;
+    }
+
+    public int getMaxPV() {
+        return maxPV;
     }
 
     public int getPosition() {
@@ -52,8 +71,9 @@ public class Hero {
         return pv;
     }
 
-    public void setPv(int pv) {
-        this.pv = pv;
+    public void increasePV(int pvAdded) {
+        if ((this.pv+pvAdded)>this.maxPV){ this.pv = this.maxPV;}
+        this.pv += pvAdded;
     }
 
     public int getAtk() {
