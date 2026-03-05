@@ -6,14 +6,12 @@ public class Monster {
     private String type;
     private int pv;
     private int atk;
-    private int position;
 
-    public Monster(String type, int pv, int atk, int position)
+    public Monster(String type, int pv, int atk)
     {
         this.type = type;
         this.pv = pv;
         this.atk = atk;
-        this.position = position;
     }
 
     public int decreasePV (int damage ){
@@ -42,15 +40,6 @@ public class Monster {
 
     public void setAtk(int atk) {
         this.atk = atk;
-    }
-
-
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
     }
 
     public int isKilled (){

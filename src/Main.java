@@ -8,8 +8,7 @@ import dungeonanddragons.Menu;
 public class Main {
     public static void main(String[] args) throws OutOfBoardException {
         int boardLength = 65;
-        int nbMonsters = 10;
-        int nbEquipment = 15;
+
 
         Game game = new Game(boardLength);
         game.start();

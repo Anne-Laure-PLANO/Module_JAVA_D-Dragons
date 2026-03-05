@@ -1,6 +1,7 @@
 package dungeonanddragons.hero;
 
 import dungeonanddragons.Game;
+import dungeonanddragons.Menu;
 import dungeonanddragons.equipment.OffensiveEquipment;
 
 import java.util.ArrayList;
@@ -27,12 +28,23 @@ public class Hero {
     }
     @Override  //chez parent car méthode existe nativement dans classe Object
     public  String  toString() {
-        return "type='" + type + '\'' +
-                ", pv=" + pv +
-                ", atk=" + atk +
-                ", Equipment=" + equipment +
-                ", Position= " + position +
-                '}';
+        return "_________ " + pseudo + " _________\n" +
+                "     Type : " + type + "\n" +
+                "      ATK : " + atk + "\n" +
+                "       PV : " + pv + "\n" +
+                "Equipment : " + equipment + "\n" +
+                " Position : " + position + "\n" +
+                "__________________________\n";
+    }
+
+    public void cure(int quantity){
+        int newPV = this.getPv()+this.getPv();
+
+        if (this.getPv() >= this.getMaxPV()){
+            this.setPv(this.getMaxPV());
+        } else {
+            this.setPv(newPV);
+        }
     }
 
     public String getPseudo() {

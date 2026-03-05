@@ -1,10 +1,8 @@
 package dungeonanddragons;
 
 import dungeonanddragons.board.Board;
-import dungeonanddragons.equipment.Equipment;
 import dungeonanddragons.exception.OutOfBoardException;
 import dungeonanddragons.hero.*;
-import dungeonanddragons.monster.*;
 
 
 import java.util.ArrayList;
@@ -17,8 +15,6 @@ public class Game {
     private Dice dice = new Dice();
     private Board board ;
     private List<Hero> heroes = new ArrayList<>();
-    private List<Monster> monsters = new ArrayList<>();
-    private List<Equipment> equipments = new ArrayList<>();
     Random rand = new Random();
 
     public Game(int boardLength) {
@@ -26,50 +22,12 @@ public class Game {
     }
 
 
-    public void initMonster(){
-        int nbMonster = 0 ;
-        int monsterPosition;
-
-        while(nbMonster <= 3){
-            int typeOfMonster = rand.nextInt(3)+1;
-            monsterPosition = rand.nextInt(board.getBoardLength()-3)+1;
-
-            // on vérifie si la position est occupée
-            boolean occupiedPosition = false;
-            for (Monster monster : monsters) {
-                if (monsterPosition == monster.getPosition()) {
-                    occupiedPosition = true;
-                    break;
-                }
-            }
-
-            //si la position est libre :
-            if (!occupiedPosition) {
-                Monster newMonster;
-                switch (typeOfMonster){
-                    case 1:
-                        newMonster = new Dragon(monsterPosition);
-                        break;
-                    case 2:
-                        newMonster = new Goblin(monsterPosition);
-                        break;
-                    default:
-                        newMonster = new Witcher(monsterPosition);
-                        break;
-                }
-                monsters.add(newMonster);
-                nbMonster += 1;
-            }
-        }
-    }
-
-
     //---> tout commence ici
     public void start () throws OutOfBoardException {
         menu.welcome();
+        board.initTiles();
         this.startMenu();
     }
-
 
 // méthode de modif de perso à créer
     //définit le choix de l'utilisateur.
@@ -84,11 +42,11 @@ public class Game {
                 System.out.println("méthode à créer"); //méthode de modification à créer.
                 break;
             case 3 :
-                if (heroes.isEmpty()){
-                    menu.needPlayerToPlay();
-                    this.startMenu();
-                } else {
+                boolean hasPlayer = verifyIfHasAPlayer();
+                if (hasPlayer){
                     this.startGame();
+                } else {
+                    this.startMenu();
                 }
                 break;
             case 4 :
@@ -99,6 +57,38 @@ public class Game {
         }
     }
 
+
+    /// /---------> méthode à reprendre ; non finie
+
+    public void optionModifyCharacter() throws OutOfBoardException {
+        boolean hasPlayer = verifyIfHasAPlayer();
+        if (hasPlayer) {
+            displayInfoHeroes();
+            // il faut choisir quel personnage on veut modifier et récupérer son emplacement dans la liste.
+
+            int userChoice = menu.choiceToModifyOption();
+            if (userChoice == 1) { // on veut modifier le perso
+                int optionToModify = menu.choiceOptionToModify();
+                if (optionToModify == 1) { // on veut modifier le pseudo
+                    String newPseudo = menu.choosePseudoOfHero();
+
+                } else { // modifier le type de perso
+                    int changeType = menu.chooseTypeOfHero();
+
+                }
+            }
+        }else {
+            //retour au menu
+            startMenu();
+        }
+
+    }
+    public void displayInfoHeroes(){
+        for (Hero hero : heroes){
+            System.out.println(hero.toString());
+            System.out.println("");
+        }
+    }
     //lance les dés + affiche texte
     public int throwDice(String heroName, Dice dice){
             int resultDice = dice.roll();
@@ -162,6 +152,15 @@ public class Game {
         menu.displayHeroNewPosition(player.getPosition());
     }
 
+
+    public boolean verifyIfHasAPlayer(){
+        if (heroes.isEmpty()) {
+            menu.needPlayer();
+            return false;
+        }else{
+            return true;
+        }
+    }
 
 
     // se sert des fonctions de Menu : chooseTypeOfHero() et choosePseudoOfHero()

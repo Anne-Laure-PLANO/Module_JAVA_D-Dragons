@@ -1,8 +1,6 @@
 package dungeonanddragons;
 
 import dungeonanddragons.hero.Hero;
-import dungeonanddragons.hero.Warrior;
-import dungeonanddragons.hero.Wizard;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -30,14 +28,11 @@ public class Menu {
     // déclenché par Game.startMenu()
 
     //condition du menu si option Jouer est choisie sans Player créé.
-    public void needPlayerToPlay (){
-        System.out.println("Pour jouer, vous devez d'abord créer un héros.");
+    public void needPlayer(){
+        System.out.println("Vous devez d'abord créer un héros.");
     }
 
-    //message pour option pour quitter le jeu
-    public void optionQuitGame (){
-        System.out.println("Vous quittez la grotte comme le lâche que vous êtes. Au revoir.");
-    }
+
 
     // Menu d'accueil qui affiche les options et renvoie le choix de redirection
     public int startMenu (){
@@ -48,7 +43,7 @@ public class Menu {
                 System.out.println("""
                     Indiquez votre choix :
                     1 - Nouveau personnage
-                    2 - Modifier les informations du personnage
+                    2 - Afficher / Modifier les informations du personnage
                     3 - Lancer le jeu
                     4 - Quitter le jeu
                     
@@ -78,6 +73,55 @@ public class Menu {
                 }
             } catch(InputMismatchException e) {
                 System.out.println("Erreur, tu dois saisir un chiffre. ");
+                sc.nextLine();
+            }
+        }
+        return userChoice;
+    }
+
+    public int choiceToModifyOption(){
+        boolean bug = true;
+        int answer = 0;
+        while (bug) {
+            try {
+                System.out.println("""
+                        Souhaitez-vous modifier le personnage ?
+                        1 - Oui  /  2 - Non
+                        """);
+                answer = sc.nextInt();
+                sc.nextLine();
+                if (answer == 1 || answer == 2) {
+                    bug = false;
+                    return answer;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur, veuillez saisir un chiffre.");
+                sc.nextLine();
+            }
+        }
+        return answer;
+    }
+
+    public int choiceOptionToModify(){
+        boolean bug = true;
+        int userChoice =0;
+        while (bug){
+            try{
+            System.out.println("""
+                    Sélectionner l'information que vous souhaitez modifier :
+                    1 - Nom du héros
+                    2 - Type de héros
+                    """);
+            userChoice = sc.nextInt();
+            sc.nextLine();
+            if (userChoice==1 || userChoice ==2){
+                bug = false;
+                return userChoice;
+            }else {
+                System.out.println("Veuillez choisir entre 1 et 2");
+            }
+                } catch (InputMismatchException e){
+                System.out.println("Erreur, veuillez saisir un chiffre.");
                 sc.nextLine();
             }
         }
@@ -237,4 +281,11 @@ public class Menu {
     """);
     }
 
+//----------------------Pour la classe Hero -----//
+    public void displayPvRestored(){
+        System.out.println("Le héros a retrouvé un peu de son énergie.");
+    }
+    public void displayPvMax (){
+        System.out.println("Le héros a retrouvé tous ses points de vie.");
+    }
 }
