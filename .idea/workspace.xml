@@ -4,58 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="" />
+    <list default="true" id="d811bafd-0f43-443f-9dd7-38228707fdfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Dice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Monster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Anne-Laure-PLANO&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Anne-Laure-PLANO/Module_JAVA_D-Dragons&quot;,
-    &quot;accountId&quot;: &quot;13039c69-c0b9-41e4-ae63-e38941c65002&quot;
-  }
-}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="AISelfReview" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="3AFiqCllqk1X68xNNi7gY0eFO3j" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -64,7 +24,6 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -73,22 +32,15 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/aldev/Documents/Module_java/Module_JAVA_D-Dragons/src/dungeonanddragons/monster",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_D&D/DungeonAndDragons/src/Main.java",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\aldev\Documents\Module_java\Module_JAVA_D-Dragons\src\dungeonanddragons\monster" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -96,17 +48,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Module_JAVA_D-Dragons" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Module_JAVA_D-Dragons" />
-      <option name="filePath" />
-      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
@@ -124,17 +65,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="" />
-      <created>1772194913787</created>
+      <changelist id="d811bafd-0f43-443f-9dd7-38228707fdfe" name="Changes" comment="" />
+      <created>1772703807970</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1772194913787</updated>
-      <workItem from="1772194914813" duration="5721000" />
-      <workItem from="1772207327147" duration="31000" />
-      <workItem from="1772444179951" duration="722000" />
-      <workItem from="1772473008460" duration="8998000" />
-      <workItem from="1772525207329" duration="1409000" />
-      <workItem from="1772527813372" duration="22522000" />
+      <updated>1772703807970</updated>
+      <workItem from="1772703809889" duration="2075000" />
     </task>
     <servers />
   </component>
