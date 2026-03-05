@@ -1,16 +1,13 @@
-package dungeonanddragons;
+package dungeonanddragons.board;
 
 public class Board {
     private int boardLength;
-
 
     public Board(int boardLength){
         this.boardLength = boardLength;
     }
 
-    public void initBoard (){
 
-    }
 
     public int getBoardLength() {
         return boardLength;

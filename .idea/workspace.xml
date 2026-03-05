@@ -5,6 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Dice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Monster.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +47,9 @@
     <commands />
     <urls />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="AISelfReview" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -59,7 +73,7 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_D&D/Module_JAVA_D-Dragons",
+    "last_opened_file_path": "C:/Users/aldev/Documents/Module_java/Module_JAVA_D-Dragons/src/dungeonanddragons/monster",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +84,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aldev\Documents\Module_java\Module_JAVA_D-Dragons\src\dungeonanddragons\monster" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
