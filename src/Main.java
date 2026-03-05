@@ -1,14 +1,18 @@
 import dungeonanddragons.Game;
+import dungeonanddragons.exception.OutOfBoardException;
 import dungeonanddragons.hero.Hero;
 import dungeonanddragons.Menu;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-        Game game = new Game(menu);
-        int boardLength = 64;
-        game.startMenu(boardLength);
+    public static void main(String[] args) throws OutOfBoardException {
+        int boardLength = 65;
+        int nbMonsters = 10;
+        int nbEquipment = 15;
+
+        Game game = new Game(boardLength);
+        game.start();
 
 
 
