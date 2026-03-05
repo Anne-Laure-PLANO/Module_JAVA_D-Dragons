@@ -3,13 +3,8 @@ package dungeonanddragons;
 import dungeonanddragons.board.Board;
 import dungeonanddragons.equipment.Equipment;
 import dungeonanddragons.exception.OutOfBoardException;
-import dungeonanddragons.hero.Hero;
-import dungeonanddragons.hero.Warrior;
-import dungeonanddragons.hero.Wizard;
-import dungeonanddragons.monster.Dragon;
-import dungeonanddragons.monster.Goblin;
-import dungeonanddragons.monster.Monster;
-import dungeonanddragons.monster.Witcher;
+import dungeonanddragons.hero.*;
+import dungeonanddragons.monster.*;
 
 
 import java.util.ArrayList;
