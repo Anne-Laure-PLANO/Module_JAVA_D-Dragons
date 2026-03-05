@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/dice/Dice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/defensiveequipment/DefensiveEquipment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/defensiveequipment/LittlePotion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/EntityLiving.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Dragon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Enemy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Goblin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/enemy/Sorcier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Hero.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Warrior.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/entityliving/hero/Wizard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/entity/offensiveequipment/OffensiveEquipment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/game/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/menu/Menu.java" beforeDir="false" />
-    </list>
+    <list default="true" id="f24819d6-eb71-40eb-bf50-7f56cd269eba" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +115,7 @@
       <workItem from="1772444179951" duration="722000" />
       <workItem from="1772473008460" duration="8998000" />
       <workItem from="1772525207329" duration="1409000" />
-      <workItem from="1772527813372" duration="11763000" />
+      <workItem from="1772527813372" duration="22522000" />
     </task>
     <servers />
   </component>
