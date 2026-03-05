@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d811bafd-0f43-443f-9dd7-38228707fdfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/consumable/BigPotion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/consumable/Consumable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/consumable/LittlePotion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/warrior/Club.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/warrior/Sword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/wizard/Fireball.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/wizard/Flash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/tile/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileEmpty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileEquipment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileMonster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/equipment/DefensiveEquipment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/equipment/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Dragon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Goblin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Witcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Witcher.java" afterDir="false" />
-    </list>
+    <list default="true" id="d811bafd-0f43-443f-9dd7-38228707fdfe" name="Changes" comment="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,11 +98,24 @@
       <option name="presentableId" value="Default" />
       <updated>1772703807970</updated>
       <workItem from="1772703809889" duration="2075000" />
-      <workItem from="1772706004417" duration="16475000" />
+      <workItem from="1772706004417" duration="16786000" />
     </task>
+    <task id="LOCAL-00001" summary="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment.">
+      <option name="closed" value="true" />
+      <created>1772726350908</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772726350908</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment." />
   </component>
 </project>
