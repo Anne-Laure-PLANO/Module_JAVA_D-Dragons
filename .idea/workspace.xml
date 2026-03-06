@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d811bafd-0f43-443f-9dd7-38228707fdfe" name="Changes" comment="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment." />
+    <list default="true" id="d811bafd-0f43-443f-9dd7-38228707fdfe" name="Changes" comment="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment.">
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/DatabaseConnectionExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/HeroDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DungeonAndDragons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DungeonAndDragons.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,26 +27,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Anne-Laure-PLANO"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Anne-Laure-PLANO&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Anne-Laure-PLANO/Module_JAVA_D-Dragons",
-    "accountId": "13039c69-c0b9-41e4-ae63-e38941c65002"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Anne-Laure-PLANO/Module_JAVA_D-Dragons&quot;,
+    &quot;accountId&quot;: &quot;13039c69-c0b9-41e4-ae63-e38941c65002&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="3AWQmC5bR12xZWsiwtSL6EZtFQo" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -48,26 +55,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_D&D/Module_JAVA_D-Dragons/lib/mariadb-java-client-3.5.7.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -98,7 +114,8 @@
       <option name="presentableId" value="Default" />
       <updated>1772703807970</updated>
       <workItem from="1772703809889" duration="2075000" />
-      <workItem from="1772706004417" duration="16786000" />
+      <workItem from="1772706004417" duration="16913000" />
+      <workItem from="1772785668470" duration="9876000" />
     </task>
     <task id="LOCAL-00001" summary="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment.">
       <option name="closed" value="true" />
