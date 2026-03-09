@@ -2,18 +2,14 @@ package dungeonanddragons.board;
 
 
 import dungeonanddragons.equipment.Equipment;
-import dungeonanddragons.equipment.consumable.BigPotion;
-import dungeonanddragons.equipment.consumable.LittlePotion;
-import dungeonanddragons.equipment.warrior.Club;
-import dungeonanddragons.equipment.warrior.Sword;
-import dungeonanddragons.equipment.wizard.Fireball;
-import dungeonanddragons.equipment.wizard.Flash;
-import dungeonanddragons.monster.Dragon;
-import dungeonanddragons.monster.Goblin;
-import dungeonanddragons.monster.Monster;
-import dungeonanddragons.monster.Witcher;
+import dungeonanddragons.equipment.consumable.*;
+import dungeonanddragons.equipment.warrior.*;
+import dungeonanddragons.equipment.wizard.*;
+import dungeonanddragons.monster.*;
 import dungeonanddragons.tile.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Board {
@@ -26,6 +22,29 @@ public class Board {
         this.board = new Tile[boardLength];
     }
 
+
+    public void moveTileMonster(Tile MonsterTile, int heroPosition){
+        List<Integer> listOfPosibility = getAvailableEmptyTiles(heroPosition);
+        if (!listOfPosibility.isEmpty()){
+            int newPosition = rand.nextInt(listOfPosibility.size());
+            board[listOfPosibility.get(newPosition)] = MonsterTile ;
+            board[heroPosition] = new TileEmpty();
+        } else {
+            board[heroPosition] = new TileEmpty();
+        }
+    }
+
+
+    public List<Integer> getAvailableEmptyTiles( int heroPosition){
+        List<Integer> availableEmptyTiles = new ArrayList<>();
+
+        for (int i= heroPosition + 1 ; i < this.getBoardLength()-1 ; i++){
+            if (board[i] instanceof TileEmpty){
+                availableEmptyTiles.add(i);
+            }
+        }
+        return availableEmptyTiles;
+    }
 
 
     public void initTiles(){
@@ -95,7 +114,13 @@ public class Board {
     }
 
 
+    public Tile[] getBoard() {
+        return board;
+    }
 
+    public void setBoard(Tile[] board) {
+        this.board = board;
+    }
 
     public int getBoardLength() {
         return boardLength;

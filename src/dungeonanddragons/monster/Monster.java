@@ -2,7 +2,7 @@ package dungeonanddragons.monster;
 
 import dungeonanddragons.hero.Hero;
 
-public class Monster {
+public abstract class Monster {
     private String type;
     private int pv;
     private int atk;
@@ -14,8 +14,29 @@ public class Monster {
         this.atk = atk;
     }
 
-    public int decreasePV (int damage ){
-        return this.pv -= damage;
+    public abstract void displayDefense ();
+     //message de souffrance
+    //message de contre-attaque
+     //contre-attaque
+         //message de fuite
+
+
+
+    public void decreasePV (int damage ){
+        if (this.getPv()> damage){
+            this.pv -= damage;
+        } else {
+            this.isKilled();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Monster{" +
+                "type='" + type + '\'' +
+                ", pv=" + pv +
+                ", atk=" + atk +
+                '}';
     }
 
     public String getType() {
@@ -42,8 +63,8 @@ public class Monster {
         this.atk = atk;
     }
 
-    public int isKilled (){
-        return this.pv = 0;
+    public void isKilled (){
+        this.pv = 0;
     }
 
 

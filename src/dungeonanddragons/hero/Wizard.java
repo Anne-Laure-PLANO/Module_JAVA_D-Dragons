@@ -1,5 +1,6 @@
 package dungeonanddragons.hero;
 
+
 public class Wizard extends Hero {
     private String pseudo;
 
@@ -7,4 +8,8 @@ public class Wizard extends Hero {
         super( pseudo, "Sorcier",  6,  8,  null, 0);
     }
 
+    @Override
+    public void displayCombat() {
+
+    }
 }

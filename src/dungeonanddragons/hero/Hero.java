@@ -2,21 +2,22 @@ package dungeonanddragons.hero;
 
 import dungeonanddragons.Game;
 import dungeonanddragons.Menu;
-import dungeonanddragons.equipment.OffensiveEquipment;
+import dungeonanddragons.equipment.Equipment;
+import dungeonanddragons.equipment.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hero {
+public abstract class Hero {
     private String pseudo;
     private String type;
     private int pv;
     private final int maxPV;
     private int atk;
-    private OffensiveEquipment equipment;
+    private Equipment equipment;
     private int position;
 
-    public  Hero(String pseudo , String type, int maxPV, int atk, OffensiveEquipment equipment, int position){
+    public  Hero(String pseudo , String type, int maxPV, int atk, Equipment equipment, int position){
         this.pseudo = pseudo;
         this.type = type;
         this.pv = maxPV;
@@ -37,16 +38,49 @@ public class Hero {
                 "__________________________\n";
     }
 
-    public void cure(int quantity){
-        int newPV = this.getPv()+this.getPv();
 
-        if (this.getPv() >= this.getMaxPV()){
+    public abstract void displayCombat();
+        //message de guerre
+        //attaque
+
+   public void decreasePV (int damage){
+       if (damage < this.getPv()){
+           this.setPv(this.getPv()-damage);
+       } else {
+           this.setPv(0);
+       }
+    }
+
+    public boolean isHeroAlive(){
+       if (this.getPv()>0){
+           return true;
+       }return false;
+    }
+
+    public void displayVictoryCombat(){
+        System.out.println("""
+                Votre cri de victoire résonne dans toute la salle. 
+                L'adversaire est à terre — et votre sang ne fait que chanter plus fort. 
+                Vous avez gagné !
+                """);
+    }
+    public void cure(int quantity){
+        int newPV = this.getPv()+ quantity;
+
+        if (newPV >= this.getMaxPV()){
             this.setPv(this.getMaxPV());
         } else {
             this.setPv(newPV);
         }
     }
 
+    public int getAtkTotal(){
+        if (this.getEquipment()==null){
+            return this.getAtk();
+        } else {
+            return this.getAtk() + this.getEquipment().getAtk();
+        }
+    }
     public String getPseudo() {
         return pseudo;
     }
@@ -96,11 +130,11 @@ public class Hero {
         this.atk = atk;
     }
 
-    public OffensiveEquipment getEquipment() {
+    public Equipment getEquipment() {
         return equipment;
     }
 
-    public void setEquipment(OffensiveEquipment equipment) {
+    public void setEquipment(Equipment equipment) {
         this.equipment = equipment;
     }
 }

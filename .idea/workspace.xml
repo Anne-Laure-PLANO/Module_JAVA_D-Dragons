@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d811bafd-0f43-443f-9dd7-38228707fdfe" name="Changes" comment="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment.">
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/DatabaseConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/DatabaseConnectionExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dungeonanddragons/HeroDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DungeonAndDragons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DungeonAndDragons.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/HeroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/HeroDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/equipment/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/equipment/OffensiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/equipment/OffensiveEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/hero/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/hero/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Dragon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Goblin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/monster/Witcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/monster/Witcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/tile/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileEmpty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileEmpty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dungeonanddragons/tile/TileMonster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,35 +67,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_D&D/Module_JAVA_D-Dragons/lib/mariadb-java-client-3.5.7.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/anne-laure.plano@Digital-Grenoble.local/Documents/module_java/Module_JAVA_D&amp;D/Module_JAVA_D-Dragons/lib/mariadb-java-client-3.5.7.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -116,6 +128,7 @@
       <workItem from="1772703809889" duration="2075000" />
       <workItem from="1772706004417" duration="16913000" />
       <workItem from="1772785668470" duration="9876000" />
+      <workItem from="1773042085281" duration="24824000" />
     </task>
     <task id="LOCAL-00001" summary="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment.">
       <option name="closed" value="true" />
@@ -134,5 +147,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment." />
     <option name="LAST_COMMIT_MESSAGE" value="Module Java - Jeu Donjon et Dragons :&#10;- les ennemis ont été instanciés&#10;- les objets ont été instanciés&#10;- les positions des différentes cases ont été gérées&#10;&#10;Travail en cours : dans le menu du jeu:&#10;- permettre la modification du personnage : soit le pseudo, soit le type ; il faut ajouter une méthode pour déterminer quel est le personnage à modifier&#10;&#10;Il reste encore à : &#10;- Définir les méthodes de combat&#10;- définir les méthodes de modification de l'équipement&#10;-&gt; et très certainement d'autres modifications sont à prévoir, que je n'ai pas en tête pour le moment." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/dungeonanddragons/Menu.java</url>
+          <line>329</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

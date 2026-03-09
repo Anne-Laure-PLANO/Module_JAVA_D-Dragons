@@ -1,5 +1,6 @@
 package dungeonanddragons;
 
+import dungeonanddragons.equipment.Equipment;
 import dungeonanddragons.hero.Hero;
 
 import java.util.InputMismatchException;
@@ -187,9 +188,9 @@ public class Menu {
     // utilisé par Game.startGame()
 
     //affiche les informations du joueur à qui c'est le tour
-     public void displayPositionHero(Hero hero) {
+     public void displayPositionHero(String infoHero) {
          System.out.println("Le joueur avance. il s'agit de :");
-         System.out.println(hero.toString());
+         System.out.println(infoHero);
          System.out.println();
      }
 
@@ -211,7 +212,10 @@ public class Menu {
         System.out.println("");
     }
 
-
+    public void waitForNextTurn() {
+        System.out.println("Appuyez sur Entrée pour continuer...");
+        sc.nextLine();
+    }
 // ----------------- messages de fin : victoire / défaite
 
 
@@ -285,7 +289,102 @@ public class Menu {
     public void displayPvRestored(){
         System.out.println("Le héros a retrouvé un peu de son énergie.");
     }
+
     public void displayPvMax (){
         System.out.println("Le héros a retrouvé tous ses points de vie.");
     }
+
+     public void displayWizardCombat(){
+         System.out.println("""
+                 L'air se fige. 
+                 Ses doigts tracent des signes anciens, une lueur violette pulse entre ses paumes. 
+                 Les mots d'un sortilège oublié roulent sur sa langue. 
+                 L'obscurité autour de lui s'incline — et obéit.
+                 """);
+     }
+
+     public void displayWarriorCombat(){
+         System.out.println("""
+                 Le sol tremble sous ses pas. 
+                 Les muscles bandés, la mâchoire serrée, il lève son arme vers le ciel — un cri de guerre déchire le silence. 
+                 Le sang lui pulse dans les tempes. Il charge.
+                 """
+
+         );
+     }
+
+
+     //-------------------------------Classe Tile -------------------
+
+
+    // ---------------------Tile empty----------------------------
+
+    public void displayTileEmpty(){
+        System.out.println("""
+                Cette case est vide. Vous pouvez vous reposer.
+                """);
+    }
+
+    // -----------------------Tile Monster--------------------------
+    public void displayTileMonster(String monster){
+        System.out.println("""
+                Une ombre inquiétante vous barre le passage... 
+                Il s'agit de :
+                """);
+        System.out.println(monster);
+    }
+
+
+
+    //-----------------------Tile Equipment-------------------------
+    public void displayTileEquipment (String equipment){
+        System.out.println("""
+                Vous avez trouvé un coffre !
+                Vous ouvrez le coffre. Il contient :
+                """);
+        System.out.println(equipment);
+
+    }
+
+    public void displayEquipmentIsIncompatible(){
+        System.out.println("Cet équipement n'est pas compatible avec votre personnage.");
+
+    }
+
+    public String displayChoiceToChangeEquipment(){
+         boolean bug = true;
+         int answer =0;
+         String choice = null;
+         while (bug){
+             try   {
+                 System.out.println("""
+                         Souhaitez-vous récupérer cet équipement ?
+                         Attention : votre ancien équipement sera perdu.
+                         1 - Je change !
+                         2 - Je préfère conserver mon équipement actuel.
+                         """);
+                 answer = sc.nextInt();
+                 sc.nextLine();
+                 if (answer == 1){
+                     choice = "change";
+                     System.out.println("Votre équipement a bien été changé. Vous laissez votre ancien équipement derrière vous.");
+                     bug = false;
+
+                 } else if (answer==2){
+                    choice = "keep";
+                    System.out.println("Vous conservez votre équipement.");
+                     bug = false;
+                 } else {
+                     System.out.println("Merci de choisir entre 1 et 2.");
+                 }
+
+             } catch (InputMismatchException e){
+                 System.out.println("Merci de saisir un chiffre.");
+                 sc.nextLine();
+             }
+         }
+         return choice;
+    }
+
+
 }

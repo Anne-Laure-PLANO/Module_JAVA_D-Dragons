@@ -3,6 +3,7 @@ package dungeonanddragons;
 import dungeonanddragons.board.Board;
 import dungeonanddragons.exception.OutOfBoardException;
 import dungeonanddragons.hero.*;
+import dungeonanddragons.tile.*;
 
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class Game {
                 break;
             case 2 :
                 System.out.println("méthode à créer"); //méthode de modification à créer.
+                this.startMenu();
                 break;
             case 3 :
                 boolean hasPlayer = verifyIfHasAPlayer();
@@ -83,12 +85,15 @@ public class Game {
         }
 
     }
+
     public void displayInfoHeroes(){
         for (Hero hero : heroes){
             System.out.println(hero.toString());
             System.out.println("");
         }
     }
+
+
     //lance les dés + affiche texte
     public int throwDice(String heroName, Dice dice){
             int resultDice = dice.roll();
@@ -99,50 +104,54 @@ public class Game {
 
         //démarre le jeu
     public void startGame() throws OutOfBoardException {
-        boolean isVictory = false;
-        boolean isDefeat = false;
-        while (!isVictory && !isDefeat) {
+        int status = 0;
+
+        do {
             for (Hero player : heroes) {
                 String namePlayer = player.getPseudo();
-                menu.displayPositionHero(player);
+                int result = 99;
 
-    //lancer de dés
+                menu.displayPositionHero(namePlayer);
+                //lancer de dés
                 int resultDice = this.throwDice(namePlayer, dice);
 
-    //Avancée du personnage
-    //uniquement réalisé pour utiliser une exception manuelle (dans le cadre des cours).
+                //Avancée du personnage
+                //OutOfBoardException -> uniquement réalisé pour utiliser une exception manuelle (dans le cadre des cours).
                 // Un simple if/else aurait parfaitement fait l'affaire.
                 try {
-                    walk(player, resultDice);
+                    int playerPosition = walk(player, resultDice);
+
+                    result = board.getBoard()[playerPosition].interaction(player, menu);
+
+                    switch (result) {
+                        case 1: // tout le monde est en vie
+                            break;
+                        case 2: // le monstre est mort
+                            break;
+                        case 3: // le héros est mort
+                            status = 2;
+                            break;
+                        case 0:
+                            System.out.println("Fin du tour.");
+                            break;
+                        default:
+                            System.out.println("il y a une erreur dans ce code...");
+
+                    }
+                    menu.waitForNextTurn();
                 } catch (OutOfBoardException e) {
                     System.out.println(e.getMessage());
                     player.setPosition(board.getBoardLength() - 1);
                     menu.displayHeroNewPosition(player.getPosition());
-                    isVictory = true;
+                    status = 1;
                 }
-
-    // on fait le tour du tableau pour savoir nature de la case.
-
-
-    //
-    //            for (Monster monster : monsters){
-    //                if (player.getPosition() == monster.getPosition()){
-    //                    this.beginCombat(); // ------------------------------à créer
-    //                    break;
-    //                }
-    //            for (Equipment equipment : equipments){
-    //                if (player.getPosition() == equipment.getPosition()){
-    //                    this.modifyEquipment();// ---------------------------- à créer
-    //                }
-    //            }
-    //            }
             }
+        }while (status == 0) ;
 
-        }
-        this.endGame(isVictory);
+        this.endGame(status);
     }
 
-    public void walk(Hero player, int dice) throws OutOfBoardException {
+    public int walk(Hero player, int dice) throws OutOfBoardException {
         int newPlayerPosition = player.getPosition() + dice;
 
         if (newPlayerPosition >= board.getBoardLength()) {
@@ -150,6 +159,7 @@ public class Game {
         }
         player.setPosition(newPlayerPosition);
         menu.displayHeroNewPosition(player.getPosition());
+        return newPlayerPosition;
     }
 
 
@@ -187,8 +197,8 @@ public class Game {
 
 
  // menu de fin de jeu
-    public void endGame (boolean isVictory) throws OutOfBoardException {
-        if (isVictory) {
+    public void endGame (int status) throws OutOfBoardException {
+        if (status == 1) {
             menu.displayVictory();
         } else {
             menu.displayGameOver();
