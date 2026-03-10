@@ -1,9 +1,12 @@
 package dungeonanddragons.equipment;
 
-public class Equipment {
+import dungeonanddragons.Menu;
+import dungeonanddragons.hero.Hero;
+
+public abstract class Equipment {
     private int equipmentId;
     private String name;
-    private int atk =0;
+    private int atk = 0;
     private String userType = "all";
 
     public Equipment(String name, int atk, String userType){
@@ -13,13 +16,15 @@ public class Equipment {
         this.userType = userType;
     }
 
-    @Override
-    public String toString() {
-        return "OffensiveEquipment{" +
-                "type='" + userType + '\'' +
-                ", atk=" + atk +
-                ", name='" + name + '\'' +
-                '}';
+    public abstract String toString() ;
+
+    public abstract void interact(Hero heros, Menu menu);
+
+    public boolean isCompatible(String typeHeros){
+        if (this.getUserType().equals(typeHeros) || this.getUserType().equals("all")){
+            return true;
+        }
+        return false;
     }
 
     public int getEquipmentId() {

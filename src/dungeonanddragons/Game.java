@@ -8,7 +8,6 @@ import dungeonanddragons.tile.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 public class Game {
@@ -16,7 +15,6 @@ public class Game {
     private Dice dice = new Dice();
     private Board board ;
     private List<Hero> heroes = new ArrayList<>();
-    Random rand = new Random();
 
     public Game(int boardLength) {
         this.board = new Board(boardLength);
@@ -104,14 +102,13 @@ public class Game {
 
         //démarre le jeu
     public void startGame() throws OutOfBoardException {
-        int status = 0;
+        String status = "onGame";
 
         do {
             for (Hero player : heroes) {
                 String namePlayer = player.getPseudo();
-                int result = 99;
 
-                menu.displayPositionHero(namePlayer);
+                menu.displayPositionHero(player.toString());
                 //lancer de dés
                 int resultDice = this.throwDice(namePlayer, dice);
 
@@ -121,32 +118,24 @@ public class Game {
                 try {
                     int playerPosition = walk(player, resultDice);
 
-                    result = board.getBoard()[playerPosition].interaction(player, menu);
+                    board.execTiles(playerPosition, player, menu);
 
-                    switch (result) {
-                        case 1: // tout le monde est en vie
-                            break;
-                        case 2: // le monstre est mort
-                            break;
-                        case 3: // le héros est mort
-                            status = 2;
-                            break;
-                        case 0:
-                            System.out.println("Fin du tour.");
-                            break;
-                        default:
-                            System.out.println("il y a une erreur dans ce code...");
-
+                    if (player.isHeroAlive() == false) {
+                        status = "dead";
                     }
+                    if (playerPosition == board.getBoardLength()-1){
+                        status = "win";
+                    }
+
                     menu.waitForNextTurn();
                 } catch (OutOfBoardException e) {
                     System.out.println(e.getMessage());
                     player.setPosition(board.getBoardLength() - 1);
                     menu.displayHeroNewPosition(player.getPosition());
-                    status = 1;
+                    status = "win";
                 }
             }
-        }while (status == 0) ;
+        }while (status == "onGame") ;
 
         this.endGame(status);
     }
@@ -182,11 +171,14 @@ public class Game {
         switch (typeChoice) {
             case 1:
                 player = new Wizard(nameHero);
+                System.out.println(player.displayHero());
                 this.heroes.add(player);
+
                 break;
             case 2:
                 player = new Warrior(nameHero);
                 this.heroes.add(player);
+                System.out.println(player.displayHero());
                 break;
             default:
                 System.out.println("Mais comment tu es arrivé là !?! bug fonction Game/createNewPlayer");
@@ -197,8 +189,8 @@ public class Game {
 
 
  // menu de fin de jeu
-    public void endGame (int status) throws OutOfBoardException {
-        if (status == 1) {
+    public void endGame (String status) throws OutOfBoardException {
+        if (status.equals("win")) {
             menu.displayVictory();
         } else {
             menu.displayGameOver();

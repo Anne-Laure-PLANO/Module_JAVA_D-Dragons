@@ -1,5 +1,6 @@
 package dungeonanddragons.equipment.consumable;
 
+import dungeonanddragons.Menu;
 import dungeonanddragons.equipment.Equipment;
 import dungeonanddragons.hero.Hero;
 
@@ -11,11 +12,28 @@ public abstract class Consumable extends Equipment {
         this.pv = pv;
     }
 
-
-
-    public void usePotion(Hero hero){
-        hero.cure(this.getPv());
+    @Override
+    public String toString(){
+        return """
+                      |---|
+                      |   |
+                    __|   |__
+                   /  *   *  \\
+                  |  * * * *  |
+                  |   * * *   |
+                  |  ~~~~~~~  |
+                   \\         /
+                    |_______|
+                Nom : %s
+                PV restaurés : %d
+                """.formatted(getName(), getPv());
     }
+
+    @Override
+    public void interact(Hero heros, Menu menu) {
+        heros.cure(this.getPv());
+    }
+
 
     public int getPv() {
         return pv;

@@ -1,6 +1,5 @@
 package dungeonanddragons.monster;
 
-import dungeonanddragons.hero.Hero;
 
 public abstract class Monster {
     private String type;
@@ -15,12 +14,9 @@ public abstract class Monster {
     }
 
     public abstract void displayDefense ();
-     //message de souffrance
-    //message de contre-attaque
-     //contre-attaque
-         //message de fuite
 
 
+    public abstract void displayEscape();
 
     public void decreasePV (int damage ){
         if (this.getPv()> damage){
@@ -29,14 +25,17 @@ public abstract class Monster {
             this.isKilled();
         }
     }
+    public abstract void displayIsKilled();
 
     @Override
-    public String toString() {
-        return "Monster{" +
-                "type='" + type + '\'' +
-                ", pv=" + pv +
-                ", atk=" + atk +
-                '}';
+    public  String toString(){
+            return "\n"+
+                    "__________________________ \n"+
+                    "     Un " + type + " apparaît :\n" +
+                    " puissance d'attaque : " + atk + "\n" +
+                    "       Points de vie : " + pv + "\n" +
+                    "__________________________\n";
+
     }
 
     public String getType() {

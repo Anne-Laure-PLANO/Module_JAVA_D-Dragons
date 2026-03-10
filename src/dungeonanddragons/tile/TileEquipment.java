@@ -10,35 +10,21 @@ public class TileEquipment extends Tile {
         private Equipment content = null;
 
         public TileEquipment(Equipment content){
+            super("equipment");
             this.content = content;
         }
 
 
     @Override
-    public int interaction(Hero heros, Menu menu) {
+    public void interact(Hero heros, Menu menu) {
+
+        Equipment actualEquipment = heros.getEquipment();
         menu.displayTileEquipment(this.content.toString());
+        this.content.interact(heros, menu);
 
-        if (isCompatible(heros.getType())){
-            String answer = menu.displayChoiceToChangeEquipment();
-
-            // option change
-            if (answer.equals("change")){
-                Equipment actualEquipment = heros.getEquipment();
-                heros.setEquipment(this.getContent());
-                this.setContent(actualEquipment);
-            }
-        } else {
-            menu.displayEquipmentIsIncompatible();
-        }
-    return 0;
     }
 
-    public boolean isCompatible(String typeHeros){
-        if (this.getContent().getUserType().equals(typeHeros)){
-            return true;
-        }
-        return false;
-    }
+
 
     public Equipment getContent(){
             return this.content;

@@ -4,10 +4,14 @@ import dungeonanddragons.Menu;
 import dungeonanddragons.hero.Hero;
 
 public abstract class Tile {
+    private String typeTile;
+
+    public Tile (String typeTile){
+        this.typeTile = typeTile;
+    }
 
 
-
-    public abstract int interaction(Hero heros, Menu menu);
+    public abstract void interact(Hero heros, Menu menu);
 
 
 }

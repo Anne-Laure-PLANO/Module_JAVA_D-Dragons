@@ -1,7 +1,6 @@
 package dungeonanddragons;
 
-import dungeonanddragons.equipment.Equipment;
-import dungeonanddragons.hero.Hero;
+import dungeonanddragons.Color;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -20,7 +19,28 @@ public class Menu {
     // déclenché par Game.start()
 
     public void welcome (){
-        System.out.println("Bienvenue dans Donjon et Dragons !");
+        System.out.println(Color.CYAN +  """
+                                      
+                        ___             _                  \s
+                       /   \\___  _ __  (_) ___  _ __       \s
+                      / /\\ / _ \\| '_ \\ | |/ _ \\| '_ \\      \s
+                     / /_// (_) | | | || | (_) | | | |     \s
+                    /___,' \\___/|_| |_|/ |\\___/|_| |_|     \s
+                                     |__/                  \s
+                                  ___                                  \s
+                                 ( _ )                                 \s
+                                 / _ \\/\\                               \s
+                                | (_>  <                               \s
+                                 \\___/\\/                               \s
+                    ___                                \s
+                   /   \\_ __ __ _  __ _  ___  _ __  ___\s
+                  / /\\ / '__/ _` |/ _` |/ _ \\| '_ \\/ __|
+                 / /_//| | | (_| | (_| | (_) | | | \\__ \\
+                /___,' |_|  \\__,_|\\__, |\\___/|_| |_|___/
+                                  |___/                \s
+                
+                
+                """ + Color.RESET);
     }
 
 
@@ -207,14 +227,15 @@ public class Menu {
 
     //affiche le texte d'annonce & résultat de l'action throwDice
     public void displayThrowDice(String heroName, int dice){
-        System.out.println("Le joueur " + heroName + "lance les dés.");
-        System.out.println("Les dés affichent " + dice + ".");
+        System.out.println(Color.YELLOW + "Le joueur " + heroName + " lance les dés." + Color.RESET);
+        System.out.println("Les dés affichent " + Color.PURPLE + dice + Color.RESET + ".");
         System.out.println("");
     }
 
     public void waitForNextTurn() {
         System.out.println("Appuyez sur Entrée pour continuer...");
         sc.nextLine();
+        System.out.println("___________________________________________________________________");
     }
 // ----------------- messages de fin : victoire / défaite
 
@@ -225,24 +246,23 @@ public class Menu {
     //appelée par Game.isVictory()
      public void displayVictory(){
         System.out.println("""
-            La lumière du trésor éclabousse vos yeux comme une aube après une nuit sans fin. Vos mains tremblent — non pas de peur, cette fois, mais de cette fierté brûlante qui monte du ventre et enflamme chaque fibre de votre être.
-            Vous avez traversé les ténèbres. Vous avez affronté ses créatures, défié ses pièges, résisté à ses murmures. Et vous êtes toujours debout.
-            Les échos de vos pas résonnent en triomphe dans la grotte silencieuse. Elle s'est inclinée devant vous, aventurier. Vous avez gagné ce qu'aucun autre n'a osé conquérir.
-            Levez la tête. La victoire est vôtre.
+                La lumière du trésor éclabousse vos yeux. Vos mains tremblent — non pas de peur, mais de cette fierté brûlante qui enflamme chaque fibre de votre être.
+                 Vous avez traversé les ténèbres, affronté ses créatures, défié ses pièges.
+                 Et vous êtes toujours debout.
+                 Levez la tête. La victoire est vôtre !
                 """);
     }
 
      public void displayGameOver(){
         System.out.println("""
-            Le sol froid de la grotte accueille votre chute sans un bruit. Personne pour témoin. Personne pour se souvenir.
-            Vous avez tout donné — votre sang, votre sueur, votre souffle. Chaque pas arraché à l'obscurité au prix d'une douleur que les mots ne peuvent contenir. Vous avez saigné pour chaque mètre conquis. Et pourtant...
-            Ce n'était pas assez.
-            La grotte ne célèbre pas sa victoire. Elle n'en a pas besoin. Elle attend, simplement, comme elle a toujours attendu — patiente, implacable, éternelle. Elle vous a consumé comme elle a consumé tous les autres avant vous, sans haine, sans gloire.
-            Vous n'étiez qu'un de plus.
-            L'obscurité se referme sur vous comme une main froide. Vos yeux cherchent une dernière fois la lumière...
-            Elle n'est plus là.
-            
-            GAME OVER
+                Le sol froid accueille votre chute sans un bruit. Personne pour témoin. Personne pour se souvenir.
+                Vous avez tout donné. Ce n'était pas assez.
+                La grotte vous a consumé comme elle a consumé tous les autres — sans haine, sans gloire.
+                Vous n'étiez qu'un de plus.
+                L'obscurité se referme. Vos yeux cherchent une dernière fois la lumière...
+                Elle n'est plus là.
+                
+                GAME OVER
             
             """);
     }
@@ -287,31 +307,10 @@ public class Menu {
 
 //----------------------Pour la classe Hero -----//
     public void displayPvRestored(){
-        System.out.println("Le héros a retrouvé un peu de son énergie.");
     }
 
-    public void displayPvMax (){
-        System.out.println("Le héros a retrouvé tous ses points de vie.");
-    }
 
-     public void displayWizardCombat(){
-         System.out.println("""
-                 L'air se fige. 
-                 Ses doigts tracent des signes anciens, une lueur violette pulse entre ses paumes. 
-                 Les mots d'un sortilège oublié roulent sur sa langue. 
-                 L'obscurité autour de lui s'incline — et obéit.
-                 """);
-     }
 
-     public void displayWarriorCombat(){
-         System.out.println("""
-                 Le sol tremble sous ses pas. 
-                 Les muscles bandés, la mâchoire serrée, il lève son arme vers le ciel — un cri de guerre déchire le silence. 
-                 Le sang lui pulse dans les tempes. Il charge.
-                 """
-
-         );
-     }
 
 
      //-------------------------------Classe Tile -------------------
@@ -321,7 +320,7 @@ public class Menu {
 
     public void displayTileEmpty(){
         System.out.println("""
-                Cette case est vide. Vous pouvez vous reposer.
+                La case est vide. Vous laissez échapper un soupir de soulagement...
                 """);
     }
 

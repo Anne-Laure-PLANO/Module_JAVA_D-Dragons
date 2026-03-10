@@ -1,10 +1,12 @@
 package dungeonanddragons.board;
 
 
+import dungeonanddragons.Menu;
 import dungeonanddragons.equipment.Equipment;
 import dungeonanddragons.equipment.consumable.*;
-import dungeonanddragons.equipment.warrior.*;
-import dungeonanddragons.equipment.wizard.*;
+import dungeonanddragons.equipment.warriorequipment.*;
+import dungeonanddragons.equipment.wizardequipment.*;
+import dungeonanddragons.hero.Hero;
 import dungeonanddragons.monster.*;
 import dungeonanddragons.tile.*;
 
@@ -22,15 +24,44 @@ public class Board {
         this.board = new Tile[boardLength];
     }
 
+    public void execTiles(int playerPosition, Hero player, Menu menu){
+        Equipment initialPlayerEquipment = player.getEquipment();
+        Tile currentTile = this.getBoard()[playerPosition];
+
+        currentTile.interact(player, menu);
+
+        if (currentTile instanceof TileEquipment){
+            if (player.getEquipment() != initialPlayerEquipment){
+                if (initialPlayerEquipment == null) {
+                    board[playerPosition] = new TileEmpty();
+                } else {
+                    System.out.println("Vous laissez votre ancien équipement ");
+                    board[playerPosition] = new TileEquipment(initialPlayerEquipment);
+                }
+            }
+        }
+        if (currentTile instanceof TileMonster){
+            TileMonster monsterTile = (TileMonster) currentTile;
+            if (monsterTile.isMonsterAlive()){
+                moveTileMonster(currentTile, playerPosition);
+            } else {
+                board[playerPosition] = new TileEmpty();
+            }
+        }
+    }
+
+
+
 
     public void moveTileMonster(Tile MonsterTile, int heroPosition){
-        List<Integer> listOfPosibility = getAvailableEmptyTiles(heroPosition);
-        if (!listOfPosibility.isEmpty()){
-            int newPosition = rand.nextInt(listOfPosibility.size());
-            board[listOfPosibility.get(newPosition)] = MonsterTile ;
-            board[heroPosition] = new TileEmpty();
+        List<Integer> listOfPossibility = getAvailableEmptyTiles(heroPosition);
+        if (!listOfPossibility.isEmpty()){
+            int newPosition = rand.nextInt(listOfPossibility.size());
+            board[listOfPossibility.get(newPosition)] = MonsterTile ;
         } else {
-            board[heroPosition] = new TileEmpty();
+            List<Integer> listOfAllPossibility = getAvailableEmptyTiles(1);
+            int newPosition = rand.nextInt(listOfAllPossibility.size());
+            board[listOfAllPossibility.get(newPosition)] = MonsterTile;
         }
     }
 

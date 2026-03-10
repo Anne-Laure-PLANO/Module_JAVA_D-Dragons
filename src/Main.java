@@ -9,25 +9,12 @@ public class Main {
     public static void main(String[] args) throws OutOfBoardException {
         int boardLength = 65;
 
-
         Game game = new Game(boardLength);
         game.start();
 
 
 
 
-
-        //lance le jeu
-
-
-        //initialisation du plateau
-
-        //initialisation des monstres
-
-        //initialisation des boxes
-        //initialisation des joueurs
-
-        //lancement de la partie (Game)
 
     }
 }

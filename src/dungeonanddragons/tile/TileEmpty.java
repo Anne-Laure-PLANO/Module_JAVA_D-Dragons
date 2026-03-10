@@ -5,10 +5,12 @@ import dungeonanddragons.hero.Hero;
 
 public class TileEmpty extends  Tile{
 
+    public TileEmpty (){
+        super("empty");
+    }
 
     @Override
-    public int interaction(Hero heros, Menu menu) {
+    public void interact(Hero heros, Menu menu) {
         menu.displayTileEmpty();
-    return 0;
     }
 }

@@ -1,12 +1,6 @@
 package dungeonanddragons.hero;
 
-import dungeonanddragons.Game;
-import dungeonanddragons.Menu;
 import dungeonanddragons.equipment.Equipment;
-import dungeonanddragons.equipment.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Hero {
     private String pseudo;
@@ -29,7 +23,9 @@ public abstract class Hero {
     }
     @Override  //chez parent car méthode existe nativement dans classe Object
     public  String  toString() {
-        return "_________ " + pseudo + " _________\n" +
+        return "\n"+
+                "__________________________\n"+
+                "       --" + pseudo + " --\n" +
                 "     Type : " + type + "\n" +
                 "      ATK : " + atk + "\n" +
                 "       PV : " + pv + "\n" +
@@ -38,10 +34,9 @@ public abstract class Hero {
                 "__________________________\n";
     }
 
+    public abstract String displayHero();
+    public abstract void displayAttack();
 
-    public abstract void displayCombat();
-        //message de guerre
-        //attaque
 
    public void decreasePV (int damage){
        if (damage < this.getPv()){
@@ -69,8 +64,12 @@ public abstract class Hero {
 
         if (newPV >= this.getMaxPV()){
             this.setPv(this.getMaxPV());
+            System.out.println("Le héros a retrouvé tous ses points de vie.");
         } else {
             this.setPv(newPV);
+            System.out.println("Le héros a retrouvé un peu de son énergie.");
+
+
         }
     }
 
