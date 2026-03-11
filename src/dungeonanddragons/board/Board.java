@@ -28,9 +28,44 @@ public class Board {
         Equipment initialPlayerEquipment = player.getEquipment();
         Tile currentTile = this.getBoard()[playerPosition];
 
-        currentTile.interact(player, menu);
+        if (currentTile instanceof TileMonster) {
 
-        if (currentTile instanceof TileEquipment){
+            TileMonster monsterTile = (TileMonster) currentTile;
+            menu.displayTileMonster(monsterTile.getContent().toString());
+
+            boolean monsterIsEscaped = monsterTile.getContent().isMonsterEscape(player.getPv());
+            if (monsterIsEscaped) {
+                moveTileMonster(currentTile, playerPosition);
+            }
+
+            boolean heroIsEscaped = false;
+            while (monsterTile.isMonsterAlive() && heroIsEscaped == false && monsterIsEscaped == false) {
+                int userChoice = menu.displayIsWantToBattle();
+                switch (userChoice) {
+                    case 1:  //attaque le monstre
+                        currentTile.interact(player, menu);
+                        break;
+                    case 2:  //fuite du héros
+                        heroIsEscaped = player.isEscaped();
+                        if (!heroIsEscaped) {
+                            monsterTile.monsterAttack(player, menu);
+                        }
+                        break;
+                    case 3: // use potion
+                        // à coder
+                        break;
+                }
+            }
+            if (heroIsEscaped) {
+                player.backDown();
+            }
+
+            if (monsterTile.isMonsterAlive() == false) {
+                board[playerPosition] = new TileEmpty();
+            }
+        }
+        else if (currentTile instanceof TileEquipment){
+            currentTile.interact(player, menu);
             if (player.getEquipment() != initialPlayerEquipment){
                 if (initialPlayerEquipment == null) {
                     board[playerPosition] = new TileEmpty();
@@ -39,19 +74,12 @@ public class Board {
                     board[playerPosition] = new TileEquipment(initialPlayerEquipment);
                 }
             }
+
         }
-        if (currentTile instanceof TileMonster){
-            TileMonster monsterTile = (TileMonster) currentTile;
-            if (monsterTile.isMonsterAlive()){
-                moveTileMonster(currentTile, playerPosition);
-            } else {
-                board[playerPosition] = new TileEmpty();
-            }
+        else {
+            currentTile.interact(player, menu);
         }
     }
-
-
-
 
     public void moveTileMonster(Tile MonsterTile, int heroPosition){
         List<Integer> listOfPossibility = getAvailableEmptyTiles(heroPosition);

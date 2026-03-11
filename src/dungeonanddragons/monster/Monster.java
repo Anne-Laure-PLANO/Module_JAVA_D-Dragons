@@ -1,22 +1,76 @@
 package dungeonanddragons.monster;
 
 
+import dungeonanddragons.Color;
+
+import java.util.Random;
+
 public abstract class Monster {
     private String type;
     private int pv;
     private int atk;
+    Random rand = new Random();
 
-    public Monster(String type, int pv, int atk)
-    {
+    public Monster(String type, int pv, int atk) {
         this.type = type;
         this.pv = pv;
         this.atk = atk;
     }
 
+    public abstract void displayAttack ();
+
     public abstract void displayDefense ();
 
+    public abstract void displayIsKilled();
+
+    public abstract int percentageChanceToEscape(int pvHeros);
 
     public abstract void displayEscape();
+
+    public abstract String getColor();
+
+    public abstract String drawMonster();
+
+    public boolean isMonsterEscape(int pvHeros) {
+        int possibility = rand.nextInt(100)+1;
+        if (possibility <= this.percentageChanceToEscape(pvHeros)) {
+            this.displayEscape();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString(){
+        String info = """
+                __________________________
+                
+                 %s Un %s apparaît ! %s
+                
+                  Puissance d'attaque ->%s %d %s
+                  Points de vie -> %s %d %s
+                                    
+                __________________________
+                """.formatted(
+                        getColor() , type , Color.RESET,
+                Color.RED , atk , Color.RESET,
+                Color.RED , pv, Color.RESET);
+
+        String[] draw = drawMonster().split("\n");
+        String[] details = info.split("\n");
+
+        StringBuilder result = new StringBuilder();
+        int maxLines = Math.max(draw.length, details.length);
+
+        for (int i=0 ; i< maxLines ; i++){
+            String ligneDessin = (i < draw.length) ? getColor() + draw[i] + Color.RESET : "";
+            String ligneTexte = (i < details.length) ? details[i] : "";
+            result.append(String.format("%-60s %s%n", ligneDessin, ligneTexte));
+        }
+        return result.toString();
+    }
+
 
     public void decreasePV (int damage ){
         if (this.getPv()> damage){
@@ -25,18 +79,11 @@ public abstract class Monster {
             this.isKilled();
         }
     }
-    public abstract void displayIsKilled();
 
-    @Override
-    public  String toString(){
-            return "\n"+
-                    "__________________________ \n"+
-                    "     Un " + type + " apparaît :\n" +
-                    " puissance d'attaque : " + atk + "\n" +
-                    "       Points de vie : " + pv + "\n" +
-                    "__________________________\n";
-
+    public void isKilled (){
+        this.pv = 0;
     }
+
 
     public String getType() {
         return type;
@@ -62,9 +109,6 @@ public abstract class Monster {
         this.atk = atk;
     }
 
-    public void isKilled (){
-        this.pv = 0;
-    }
 
 
 }

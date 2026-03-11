@@ -27,5 +27,12 @@ public abstract class WarriorEquipment extends Equipment {
     }
 
 
-    public abstract String toString();
+    public  String toString(){
+        return "\n"+
+                "__________________________________________\n"+
+                "            Objet trouvé : " + getName() + "\n" +
+                " Effet : PV augmentés de : " + getAtk() + "\n" +
+                "          Héros concerné : " + getUserType() + "\n" +
+                "__________________________________________\n";
+    }
 }

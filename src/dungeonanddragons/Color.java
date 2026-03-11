@@ -12,4 +12,8 @@ public class Color {
         public static final String ORANGE = "\u001B[38;5;214m";  // orange doré
         public static final String BROWN_WOOD = "\u001B[38;5;94m";
         public static final String SILVER_BRIGHT = "\u001B[38;5;255m";  // argenté brillant
+        public static final String GREY = "\u001B[90m";  // gris foncé
+        public static final String GREY_LIGHT = "\u001B[37m";  // gris clair
+
+
 }

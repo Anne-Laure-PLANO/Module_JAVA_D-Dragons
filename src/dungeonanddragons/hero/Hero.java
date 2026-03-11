@@ -1,6 +1,10 @@
 package dungeonanddragons.hero;
 
+import dungeonanddragons.Color;
 import dungeonanddragons.equipment.Equipment;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class Hero {
     private String pseudo;
@@ -9,7 +13,9 @@ public abstract class Hero {
     private final int maxPV;
     private int atk;
     private Equipment equipment;
+    private Equipment[] bag = new Equipment[5];
     private int position;
+    private Random rand = new Random();
 
     public  Hero(String pseudo , String type, int maxPV, int atk, Equipment equipment, int position){
         this.pseudo = pseudo;
@@ -19,26 +25,65 @@ public abstract class Hero {
         this.atk = atk;
         this.equipment = equipment;
         this.position = position;
-
     }
     @Override  //chez parent car méthode existe nativement dans classe Object
     public  String  toString() {
-        return "\n"+
-                "__________________________\n"+
-                "       --" + pseudo + " --\n" +
-                "     Type : " + type + "\n" +
-                "      ATK : " + atk + "\n" +
-                "       PV : " + pv + "\n" +
-                "Equipment : " + equipment + "\n" +
-                " Position : " + position + "\n" +
-                "__________________________\n";
+        String equipmentString = (getEquipment() != null) ? getEquipment().getName()  : "vide";
+        String equipmentAtk =  (getEquipment() != null) ? String.valueOf(getEquipment().getAtk()) : "0";
+        String info = """
+        
+        
+        
+        
+        
+               __________________________
+                
+                     %s --  %s  --%s
+                      Type  %s
+                      
+              %s  Points d'attaque -> %d  %s
+                %s   Points de vie -> %d  %s 
+                   
+                  %s Equipment -> %s  %s
+                  ATK suppl. ->%s %s  %s
+              
+                     %s - Position %s - %s
+
+               __________________________
+            
+        """.formatted(
+                Color.CYAN , pseudo , Color.RESET,
+                type,
+                Color.RED , atk , Color.RESET,
+                Color.GREEN, pv , Color.RESET,
+                Color.SILVER_BRIGHT, equipmentString, Color.RESET,
+                Color.RED, equipmentAtk, Color.RESET,
+                Color.CYAN, position, Color.RESET
+        );
+
+        String[] draw = getDraw().split("\n");
+        String[] details = info.split("\n");
+
+        StringBuilder result = new StringBuilder();
+        int maxLines = Math.max(draw.length, details.length);
+
+        for (int i = 0; i < maxLines; i++) {
+            String ligneDessin = (i < draw.length) ? draw[i] : "";
+            String ligneTexte = (i < details.length) ? details[i] : "";
+            result.append(String.format("%-40s %s%n", ligneDessin, ligneTexte));
+        }
+        return result.toString();
     }
 
-    public abstract String displayHero();
+
+
+
+    public abstract String getDraw();
+
     public abstract void displayAttack();
 
 
-   public void decreasePV (int damage){
+    public void decreasePV (int damage){
        if (damage < this.getPv()){
            this.setPv(this.getPv()-damage);
        } else {
@@ -59,6 +104,7 @@ public abstract class Hero {
                 Vous avez gagné !
                 """);
     }
+
     public void cure(int quantity){
         int newPV = this.getPv()+ quantity;
 
@@ -80,6 +126,32 @@ public abstract class Hero {
             return this.getAtk() + this.getEquipment().getAtk();
         }
     }
+
+    public boolean isEscaped(){
+       int possibility = rand.nextInt(100)+1;
+       if  (possibility >= 50){
+
+           System.out.printf("Vous réussissez à fuir.");
+           return true;
+       } else {
+           System.out.println("Votre adversaire vous barre le passage : vous n'avez pas réussi à vous échapper.");
+           return false;
+       }
+    }
+
+    public void backDown(){
+       int goBack = rand.nextInt(6)+1;
+       if (this.getPosition() >= goBack){
+           this.setPosition(this.getPosition()-goBack);
+            System.out.println("Vous reculez de "+ goBack +" cases.");
+       } else {
+           this.setPosition(0);
+           System.out.println("Vous retournez à la case départ.");
+       }
+   }
+
+
+
     public String getPseudo() {
         return pseudo;
     }
@@ -116,11 +188,6 @@ public abstract class Hero {
         return pv;
     }
 
-    public void increasePV(int pvAdded) {
-        if ((this.pv+pvAdded)>this.maxPV){ this.pv = this.maxPV;}
-        this.pv += pvAdded;
-    }
-
     public int getAtk() {
         return atk;
     }
@@ -135,5 +202,13 @@ public abstract class Hero {
 
     public void setEquipment(Equipment equipment) {
         this.equipment = equipment;
+    }
+
+    public Equipment[] getBag() {
+        return bag;
+    }
+
+    public void setBag(Equipment[] bag) {
+        this.bag = bag;
     }
 }

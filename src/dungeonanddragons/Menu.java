@@ -3,6 +3,7 @@ package dungeonanddragons;
 import dungeonanddragons.Color;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -43,8 +44,6 @@ public class Menu {
                 """ + Color.RESET);
     }
 
-
-
 // -------------messages du menu du jeu ----------------
     // déclenché par Game.startMenu()
 
@@ -67,7 +66,6 @@ public class Menu {
                     2 - Afficher / Modifier les informations du personnage
                     3 - Lancer le jeu
                     4 - Quitter le jeu
-                    
                     """);
                 userChoice = sc.nextInt();
                 sc.nextLine();
@@ -198,8 +196,8 @@ public class Menu {
     public void confirmCreationHero (){
         System.out.println("""
            Ton héros a bien été créé.
-           Retour au menu pour commencer l'aventure !
-           """);
+           Appuie sur Entrer pour retourner au menu.""");
+        sc.nextLine();
     }
 
 
@@ -209,9 +207,10 @@ public class Menu {
 
     //affiche les informations du joueur à qui c'est le tour
      public void displayPositionHero(String infoHero) {
-         System.out.println("Le joueur avance. il s'agit de :");
-         System.out.println(infoHero);
-         System.out.println();
+         System.out.println("""
+         Le joueur avance. il s'agit de :
+         """ + infoHero );
+
      }
 
 // --------------Messages d'avancée du personnage
@@ -227,9 +226,10 @@ public class Menu {
 
     //affiche le texte d'annonce & résultat de l'action throwDice
     public void displayThrowDice(String heroName, int dice){
+        System.out.println("Appuyer sur Entrer pour lancer les dés.");
+        sc.nextLine();
         System.out.println(Color.YELLOW + "Le joueur " + heroName + " lance les dés." + Color.RESET);
-        System.out.println("Les dés affichent " + Color.PURPLE + dice + Color.RESET + ".");
-        System.out.println("");
+        System.out.println("Les dés affichent " + Color.PURPLE + dice + Color.RESET + ".\n");
     }
 
     public void waitForNextTurn() {
@@ -262,9 +262,8 @@ public class Menu {
                 L'obscurité se referme. Vos yeux cherchent une dernière fois la lumière...
                 Elle n'est plus là.
                 
-                GAME OVER
-            
-            """);
+               %s GAME OVER %s
+            """.formatted(Color.RED, Color.RESET));
     }
 
     // appelée par Game.restartMenu()
@@ -305,13 +304,6 @@ public class Menu {
     """);
     }
 
-//----------------------Pour la classe Hero -----//
-    public void displayPvRestored(){
-    }
-
-
-
-
 
      //-------------------------------Classe Tile -------------------
 
@@ -329,24 +321,58 @@ public class Menu {
         System.out.println("""
                 Une ombre inquiétante vous barre le passage... 
                 Il s'agit de :
-                """);
-        System.out.println(monster);
+                """ + monster);
     }
 
+    public void displayHeroPV(int actualPV, int totalPV){
+                System.out.println("""
+                        Vous avez été blessé.
+                        Il vous reste : %s %d %s / %s %d %s PV.
+                        """.formatted(Color.RED , actualPV, Color.RESET ,
+                        Color.GREEN ,  totalPV, Color.RESET));
+            }
+
+    public int displayIsWantToBattle(){
+        int answer = 0;
+        List<Integer> possibilities = List.of(1, 2, 3);
+        do {
+            try {
+                System.out.println("""
+                    Que souhaitez-vous faire ? 
+                    1 - Combattre
+                    2 - Fuir
+                    3 - Utiliser une potion
+                    """);
+                answer = sc.nextInt();
+                sc.nextLine();
+                if (!possibilities.contains(answer)) {
+                    System.out.println("Merci de saisir un chiffre entre 1 et 3");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur : merci de saisir un chiffre.");
+                sc.nextLine();
+            }
+        } while (!possibilities.contains(answer));
+        return answer;
+    }
 
 
     //-----------------------Tile Equipment-------------------------
     public void displayTileEquipment (String equipment){
         System.out.println("""
-                Vous avez trouvé un coffre !
-                Vous ouvrez le coffre. Il contient :
-                """);
-        System.out.println(equipment);
+                Vous avez trouvé un coffre ! 
+                Vous faites sauter le cadenas sans hésiter et ouvrez le couvercle d'un grand geste joyeux, 
+                impatient de voir ce qui se cache à l'intérieur... 
+                Il contient :
+                """ + equipment);
 
     }
 
     public void displayEquipmentIsIncompatible(){
-        System.out.println("Cet équipement n'est pas compatible avec votre personnage.");
+        System.out.println("""
+                Cet équipement n'est pas compatible avec votre personnage.
+                Vous refermez le coffre, déçu..
+                """);
 
     }
 

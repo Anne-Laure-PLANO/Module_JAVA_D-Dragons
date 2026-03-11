@@ -15,22 +15,29 @@ public class TileMonster extends Tile {
 
     @Override
     public void interact(Hero heros, Menu menu) {
-        menu.displayTileMonster(this.getContent().toString());
 
-        // le héros attaque :
-        heros.displayAttack();
-        this.getContent().decreasePV(heros.getAtkTotal());
+            // le héros attaque :
+            heros.displayAttack();
+            this.getContent().decreasePV(heros.getAtkTotal());
 
-        if (this.isMonsterAlive()) {
-            this.getContent().displayDefense();
-            this.getContent().displayEscape();
-            heros.decreasePV(this.getContent().getAtk());
-        } else {
-            this.getContent().displayIsKilled();
-            heros.displayVictoryCombat();
-        }
+            if (this.isMonsterAlive()) {
+                //le monstre contre-attaque
+                this.getContent().displayDefense();
+                heros.decreasePV(this.getContent().getAtk());
+                menu.displayHeroPV(heros.getPv(), heros.getMaxPV());
+
+            } else {
+                this.getContent().displayIsKilled();
+                heros.displayVictoryCombat();
+            }
     }
 
+    public void monsterAttack(Hero heros,  Menu menu) {
+        this.getContent().displayAttack();
+        heros.decreasePV(this.getContent().getAtk());
+        menu.displayHeroPV(heros.getPv(), heros.getMaxPV());
+
+    }
 
     public boolean isMonsterAlive(){
         if (this.getContent().getPv()>0){

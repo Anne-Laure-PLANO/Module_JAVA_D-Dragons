@@ -8,21 +8,8 @@ public class Warrior extends Hero {
     }
 
 
-    @Override
-    public void displayAttack() {
-        System.out.println("""
-                 Vous attaquez : 
-                 Le sol tremble sous ses pas. 
-                 Les muscles bandés, la mâchoire serrée, il lève son arme vers le ciel — un cri de guerre déchire le silence. 
-                 Le sang lui pulse dans les tempes. Il charge.
-                 """
-
-        );
-
-
-    }
-    public String displayHero() {
-        return """
+    public String getDraw() {
+        return  """
                  /\\
                  ||
                  ||
@@ -47,8 +34,21 @@ public class Warrior extends Hero {
                            |  ||  |
                           _\\.:||:./_
                          /____/\\____\\
-                
-                """
-                +super.toString();
+                """;
     }
+
+    @Override
+    public void displayAttack() {
+        System.out.println("""
+                 Vous attaquez : 
+                 Le sol tremble sous ses pas. 
+                 Les muscles bandés, la mâchoire serrée, il lève son arme vers le ciel — un cri de guerre déchire le silence. 
+                 Le sang lui pulse dans les tempes. Il charge.
+                 """
+
+        );
+
+
+    }
+
 }

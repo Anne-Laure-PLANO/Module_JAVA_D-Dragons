@@ -28,9 +28,6 @@ public class Sword extends WarriorEquipment {
                                /  \\
                               /____\\
                 
-                Nom : %s
-                Attaque augmentée de : %d
-                
-                """.formatted(getName(), getAtk()) + Color.RESET;
+                """ + Color.RESET + super.toString();
     }
 }

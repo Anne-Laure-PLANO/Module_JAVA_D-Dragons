@@ -3,7 +3,6 @@ package dungeonanddragons;
 import dungeonanddragons.board.Board;
 import dungeonanddragons.exception.OutOfBoardException;
 import dungeonanddragons.hero.*;
-import dungeonanddragons.tile.*;
 
 
 import java.util.ArrayList;
@@ -94,10 +93,10 @@ public class Game {
 
     //lance les dés + affiche texte
     public int throwDice(String heroName, Dice dice){
-            int resultDice = dice.roll();
-            menu.displayThrowDice(heroName, resultDice);
-            return resultDice;
-        }
+        int resultDice = dice.roll();
+        menu.displayThrowDice(heroName, resultDice);
+        return resultDice;
+    }
 
 
         //démarre le jeu
@@ -171,14 +170,14 @@ public class Game {
         switch (typeChoice) {
             case 1:
                 player = new Wizard(nameHero);
-                System.out.println(player.displayHero());
+                System.out.println(player.toString());
                 this.heroes.add(player);
 
                 break;
             case 2:
                 player = new Warrior(nameHero);
                 this.heroes.add(player);
-                System.out.println(player.displayHero());
+                System.out.println(player.toString());
                 break;
             default:
                 System.out.println("Mais comment tu es arrivé là !?! bug fonction Game/createNewPlayer");

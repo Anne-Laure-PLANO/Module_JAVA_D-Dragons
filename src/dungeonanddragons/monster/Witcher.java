@@ -1,11 +1,17 @@
 package dungeonanddragons.monster;
 
 
+import dungeonanddragons.Color;
+
 public class Witcher extends Monster {
 
 
     public Witcher() {
         super( "Sorcier", 2, 9 );
+    }
+
+    public void displayAttack() {
+        System.out.println("Le Sorcier vous attaque ! ");
     }
 
     @Override
@@ -17,9 +23,6 @@ public class Witcher extends Monster {
                 Il vous attaque !
                 """);
     }
-    public void displayEscape(){
-        System.out.println("Le sorcier disparait dans une évaporation.");
-    }
 
     public void displayIsKilled() {
         System.out.println("""
@@ -30,34 +33,47 @@ public class Witcher extends Monster {
         );
     }
 
+    public int percentageChanceToEscape(int pvHeros) {
+        if (getAtk()>= pvHeros) {
+            return 0;
+        }else {
+            return 30;
+        }
+    }
+
+    public void displayEscape(){
+        System.out.println("Sans prévenir, le sorcier disparait dans une évaporation.");
+    }
+
     @Override
-    public String toString() {
+    public String getColor() {
+        return Color.GREY_LIGHT;
+    }
+
+    @Override
+    public String drawMonster() {
         return """
-                
-                
-                              _,-'|
-                           ,-'._  |
-                 .||,      |####\\ |
-                \\.`',/     \\####| |
-                = ,. =      |###| |
-                / || \\    ,-'\\#/,'`.
-                  ||     ,'   `,,. `.
-                  ,|____,' , ,;' \\| |
-                 (3|\\    _/|/'   _| |
-                  ||/,-''  | >-'' _,\\\\
-                  ||'      ==\\ ,-'  ,'
-                  ||       |  V \\ ,|
-                  ||       |    |` |
-                  ||       |    |   \\
-                  ||       |    \\    \\
-                  ||       |     |    \\
-                  ||       |      \\_,-'
-                  ||       |___,,--")_\\
-                  ||         |_|   ccc/
-                  ||        ccc/
-                  ||                
-                
-                
-                """+ super.toString();
+                                      _,-'|
+                                   ,-'._  |
+                         .||,      |####\\ |
+                        \\.`',/     \\####| |
+                        = ,. =      |###| |
+                        / || \\    ,-'\\#/,'`.
+                          ||     ,'   `,,. `.
+                          ,|____,' , ,;' \\| |
+                         (3|\\    _/|/'   _| |
+                          ||/,-''  | >-'' _,\\\\
+                          ||'      ==\\ ,-'  ,'
+                          ||       |  V \\ ,|
+                          ||       |    |` |
+                          ||       |    |   \\
+                          ||       |    \\    \\
+                          ||       |     |    \\
+                          ||       |      \\_,-'
+                          ||       |___,,--")_\\
+                          ||         |_|   ccc/
+                          ||        ccc/
+                          ||                
+                """;
     }
 }

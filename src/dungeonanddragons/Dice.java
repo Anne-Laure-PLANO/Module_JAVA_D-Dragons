@@ -2,6 +2,7 @@ package dungeonanddragons;
 
 import java.util.Random;
 
+
 public class Dice {
     Random rand = new Random();
 
@@ -11,7 +12,7 @@ public class Dice {
     }
 
     public int roll(){
-       int result = rand.nextInt(6)+1 ;
+        int result = rand.nextInt(6)+1 ;
         return result ;
     }
 
