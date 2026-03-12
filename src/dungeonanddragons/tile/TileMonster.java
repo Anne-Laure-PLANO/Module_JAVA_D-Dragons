@@ -19,6 +19,7 @@ public class TileMonster extends Tile {
             // le héros attaque :
             heros.displayAttack();
             this.getContent().decreasePV(heros.getAtkTotal());
+            menu.displayMonsterPV(getContent().getColor(), getContent().getType(), heros.getAtkTotal(), getContent().getPv(), getContent().getMaxPV());
 
             if (this.isMonsterAlive()) {
                 //le monstre contre-attaque

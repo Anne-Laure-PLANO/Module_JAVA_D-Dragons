@@ -5,14 +5,14 @@ import dungeonanddragons.equipment.Equipment;
 
 public class Club extends WarriorEquipment {
 
-    public Club (){
-        super("Massue", 3, "Warrior");
+    public Club() {
+        super("Massue", 3,  "Warrior");
     }
 
 
     @Override
-    public String toString() {
-        return Color.BROWN_WOOD + """                                                        
+    public String draw() {
+        return """     
                          ___
                       //  @ //
                     //@     //
@@ -21,8 +21,13 @@ public class Club extends WarriorEquipment {
                    // //
                   // //
                  //_//
-                
-                
-                """ + Color.RESET + super.toString();
+                """;
     }
+
+    public String getColor(){
+        return Color.BROWN_WOOD;
+
+    }
+
+
 }

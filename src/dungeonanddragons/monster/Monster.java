@@ -8,12 +8,14 @@ import java.util.Random;
 public abstract class Monster {
     private String type;
     private int pv;
+    private int maxPV;
     private int atk;
     Random rand = new Random();
 
     public Monster(String type, int pv, int atk) {
         this.type = type;
         this.pv = pv;
+        this.maxPV = pv;
         this.atk = atk;
     }
 
@@ -109,6 +111,11 @@ public abstract class Monster {
         this.atk = atk;
     }
 
+    public int getMaxPV() {
+        return maxPV;
+    }
 
-
+    public void setMaxPV(int maxPV) {
+        this.maxPV = maxPV;
+    }
 }

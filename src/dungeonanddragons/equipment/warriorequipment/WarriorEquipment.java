@@ -8,8 +8,14 @@ public abstract class WarriorEquipment extends Equipment {
 
 
     public WarriorEquipment(String name, int atk, String userType){
-        super(name, atk, userType);
+        super(name, atk, 0, userType);
     }
+
+
+    public abstract String draw();
+
+    public abstract String getColor();
+
 
     @Override
     public void interact(Hero heros, Menu menu){
@@ -27,12 +33,4 @@ public abstract class WarriorEquipment extends Equipment {
     }
 
 
-    public  String toString(){
-        return "\n"+
-                "__________________________________________\n"+
-                "            Objet trouvé : " + getName() + "\n" +
-                " Effet : PV augmentés de : " + getAtk() + "\n" +
-                "          Héros concerné : " + getUserType() + "\n" +
-                "__________________________________________\n";
-    }
 }

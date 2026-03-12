@@ -39,14 +39,15 @@ public class Board {
             }
 
             boolean heroIsEscaped = false;
-            while (monsterTile.isMonsterAlive() && heroIsEscaped == false && monsterIsEscaped == false) {
+            boolean heroIsAlive = true;
+            while (monsterTile.isMonsterAlive() && heroIsEscaped == false && monsterIsEscaped == false && heroIsAlive) {
                 int userChoice = menu.displayIsWantToBattle();
                 switch (userChoice) {
                     case 1:  //attaque le monstre
                         currentTile.interact(player, menu);
                         break;
                     case 2:  //fuite du héros
-                        heroIsEscaped = player.isEscaped();
+                        heroIsEscaped = player.canHeroEscape();
                         if (!heroIsEscaped) {
                             monsterTile.monsterAttack(player, menu);
                         }
@@ -55,7 +56,9 @@ public class Board {
                         // à coder
                         break;
                 }
+                heroIsAlive = player.isHeroAlive();
             }
+
             if (heroIsEscaped) {
                 player.backDown();
             }

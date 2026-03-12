@@ -9,25 +9,28 @@ public class Sword extends WarriorEquipment {
     }
 
     @Override
-    public String toString() {
-        return Color.SILVER_BRIGHT + """     
-                                                           
-                                /\\
-                               /  \\
-                              /    \\
-                             /      \\
-                             ||||||||
-                             ||||||||
-                             ||||||||
-                             ||||||||
-                             ||||||||
-                            /========\\
-                           /__________\\
-                                ||
-                                ||
-                               /  \\
-                              /____\\
-                
-                """ + Color.RESET + super.toString();
+    public String draw() {
+        return """     
+                        /\\
+                       /  \\
+                      /    \\
+                     /      \\
+                     ||||||||
+                     ||||||||
+                     ||||||||
+                     ||||||||
+                     ||||||||
+                    /========\\
+                   /__________\\
+                        ||
+                        ||
+                       /  \\
+                      /____\\
+                """;
+    }
+
+    public String getColor(){
+        return Color.SILVER_BRIGHT;
+
     }
 }

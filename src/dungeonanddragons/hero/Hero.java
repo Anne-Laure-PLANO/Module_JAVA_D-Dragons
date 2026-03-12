@@ -1,9 +1,10 @@
 package dungeonanddragons.hero;
 
 import dungeonanddragons.Color;
+import dungeonanddragons.Menu;
 import dungeonanddragons.equipment.Equipment;
 
-import java.util.ArrayList;
+import javax.management.modelmbean.RequiredModelMBean;
 import java.util.Random;
 
 public abstract class Hero {
@@ -13,7 +14,7 @@ public abstract class Hero {
     private final int maxPV;
     private int atk;
     private Equipment equipment;
-    private Equipment[] bag = new Equipment[5];
+    private Equipment[] bag = new Equipment[6];
     private int position;
     private Random rand = new Random();
 
@@ -82,7 +83,6 @@ public abstract class Hero {
 
     public abstract void displayAttack();
 
-
     public void decreasePV (int damage){
        if (damage < this.getPv()){
            this.setPv(this.getPv()-damage);
@@ -101,7 +101,7 @@ public abstract class Hero {
         System.out.println("""
                 Votre cri de victoire résonne dans toute la salle. 
                 L'adversaire est à terre — et votre sang ne fait que chanter plus fort. 
-                Vous avez gagné !
+                Vous avez vaincu l'ennemi !
                 """);
     }
 
@@ -110,6 +110,7 @@ public abstract class Hero {
 
         if (newPV >= this.getMaxPV()){
             this.setPv(this.getMaxPV());
+
             System.out.println("Le héros a retrouvé tous ses points de vie.");
         } else {
             this.setPv(newPV);
@@ -127,7 +128,7 @@ public abstract class Hero {
         }
     }
 
-    public boolean isEscaped(){
+    public boolean canHeroEscape(){
        int possibility = rand.nextInt(100)+1;
        if  (possibility >= 50){
 
@@ -149,6 +150,46 @@ public abstract class Hero {
            System.out.println("Vous retournez à la case départ.");
        }
    }
+
+    public void keepObjectOnTheBag(Equipment object){
+        int emptyPocket =99;
+        for ( int i=0 ; i<bag.length ; i++){
+            if (bag[i] == null){
+                emptyPocket = i;
+                break;
+            }
+        }
+        if (emptyPocket !=99){
+            bag[emptyPocket] = object;
+        } else {
+            System.out.println("Action impossible ; le sac est plein.");
+        }
+    }
+
+    public void chooseObjectOnTheBag(Menu menu){
+        int indexObject = menu.displayWhatObjectDoYouWantToUse(getBag());
+        int chooseAction = menu.displayWhatDoYouWantToDoWithThisObject(getBag()[indexObject].getName());
+        switch (chooseAction) {
+            case 1:
+                useObjectOnTheBag(indexObject);
+                break;
+            case 2:
+                deleteObjectOnTheBag(indexObject, menu);
+                break;
+            default:
+                menu.displayYouDoNothingWithBag();
+                break;
+        }
+    }
+
+    public void deleteObjectOnTheBag(int objectEmplacment, Menu menu){
+        menu.displayObjectHasBeenDestroyed(getBag()[objectEmplacment].getName());
+        getBag()[objectEmplacment] = null;
+    }
+
+    public void useObjectOnTheBag(int objectEmplacment){
+        cure(getBag()[objectEmplacment].getPv());
+    }
 
 
 

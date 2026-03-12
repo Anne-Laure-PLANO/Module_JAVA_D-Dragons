@@ -1,6 +1,7 @@
 package dungeonanddragons;
 
 import dungeonanddragons.Color;
+import dungeonanddragons.equipment.Equipment;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -310,11 +311,6 @@ public class Menu {
 
     // ---------------------Tile empty----------------------------
 
-    public void displayTileEmpty(){
-        System.out.println("""
-                La case est vide. Vous laissez échapper un soupir de soulagement...
-                """);
-    }
 
     // -----------------------Tile Monster--------------------------
     public void displayTileMonster(String monster){
@@ -331,6 +327,18 @@ public class Menu {
                         """.formatted(Color.RED , actualPV, Color.RESET ,
                         Color.GREEN ,  totalPV, Color.RESET));
             }
+
+    public void displayMonsterPV( String colorMonster , String nameMonster, int degats, int actualPV, int totalPV){
+        System.out.println("""
+                        Le %s%s%s a été touché ! 
+                        Vous lui avez fait %s%d%s de dégats.
+                        Quantité de PV restant : %s%d / %d%s PV.
+                        """.formatted(
+                                colorMonster, nameMonster, Color.RESET,
+                Color.RED , degats, Color.RESET,
+                Color.RED, actualPV, totalPV, Color.RESET));
+
+    }
 
     public int displayIsWantToBattle(){
         int answer = 0;
@@ -412,4 +420,125 @@ public class Menu {
     }
 
 
+    // ---------------------Tile Empty -----------------------------
+
+    public void displayTileEmpty(){
+        System.out.println("""
+                La case est vide. Vous laissez échapper un soupir de soulagement...
+                """);
+    }
+
+    public boolean chooseWhatDoYouWantToDo(){
+        int answer = 0;
+        do{
+            try{
+             System.out.println("""
+                    Que souhaitez-vous faire ?
+                    1 - Regarder dans votre sac
+                    2 - Rien
+                    """);
+             answer = sc.nextInt();
+             sc.nextLine();
+             if (answer ==1){
+                 return true;
+             } else if (answer ==2) {
+                 return false;
+             }else {
+                 System.out.println("Merci de choisir entre 1 ou 2.");
+             }
+            } catch (InputMismatchException e) {
+                System.out.println("Merci de ne saisir que des chiffres.");
+                sc.nextLine();
+            }
+        } while (answer != 1 && answer !=2);
+        return false;
+    }
+
+    public boolean displayBag(Equipment[] bag){
+        int answer = 0;
+        do{
+            try{
+                System.out.println("Votre sac contient :");
+                for (int i=0 ; i<bag.length ; i++){
+                    System.out.println(i+1 + " - "+ bag[i].getName() + " - restaure "+ bag[i].getPv()+ " points de vie." );
+                }
+                System.out.println("""
+                        Souhaitez-vous prendre un objet ?
+                        1 - oui
+                        2 - non
+                        """);
+                answer = sc.nextInt();
+                sc.nextLine();
+                if (answer==1) {
+                    return true;
+                }else if(answer ==2){
+                    return false;
+                } else{
+                    System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 1 et 2.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Merci de saisir uniquement un chiffre.");
+                sc.nextLine();
+            }
+        } while (answer<1 || answer>2);
+        return false;
+    }
+
+    public int displayWhatObjectDoYouWantToUse(Equipment[] bag){
+         int answer = 0;
+         do{
+             try{
+                System.out.println("Votre sac contient :");
+                 for (int i=0 ; i<bag.length ; i++){
+                     System.out.println(i+1 + " - "+ bag[i].getName() + " - restaure "+ bag[i].getPv()+ " points de vie." );
+                 }
+                 System.out.println("Quel objet souhaitez-vous prendre ? ");
+                 answer = sc.nextInt();
+                 sc.nextLine();
+                 if (answer>0 && answer<=bag.length){
+                     System.out.println("Vous avez sélectionné : "+ bag[answer-1]+".");
+                     return answer-1;
+                 } else{
+                     System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 1 et "+ bag.length + ".");
+                 }
+             } catch (InputMismatchException e) {
+                 System.out.println("Merci de saisir uniquement un chiffre.");
+                 sc.nextLine();
+             }
+         } while (answer<=0 || answer>bag.length);
+         return answer;
+    }
+
+    public int displayWhatDoYouWantToDoWithThisObject(String objectName){
+        int answer = 0;
+        do{
+            try{
+                System.out.println("""
+                    Que souhaitez- vous faire avec %s ?
+                    1 - L'utiliser
+                    2 - Le jeter
+                    3 - Rien 
+                    """.formatted(objectName));
+                answer = sc.nextInt();
+                sc.nextLine();
+                if (answer>=1 && answer<=3){
+                    return answer;
+                } else{
+                    System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 1 et 3.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Merci de saisir uniquement un chiffre.");
+                sc.nextLine();
+            }
+        } while (answer<1 || answer>3);
+        return answer;
+    }
+
+    public void displayObjectHasBeenDestroyed(String objectName){
+        System.out.println(objectName + " a bien été détruit. J'espère que vous n'en aurez pas besoin !");
+    }
+
+    public void displayYouDoNothingWithBag(){
+        System.out.println("Vous remettez l'objet à sa place et trouvez une autre occupation.");
+    }
 }

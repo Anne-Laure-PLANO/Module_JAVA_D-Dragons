@@ -202,6 +202,11 @@ public class Game {
         int answer = menu.displayRestartMenu();
         switch (answer) {
             case 1 :
+                for (Hero hero : heroes){
+                    hero.setPosition(0);
+                    hero.setPv(hero.getMaxPV());
+                    hero.setEquipment(null);
+                }
                 this.startGame();
                 break;
             case 2 :

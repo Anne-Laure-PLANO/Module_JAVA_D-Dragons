@@ -8,20 +8,20 @@ public class Fireball extends WizardEquipment {
         super("Boule de feu", 7, "Wizard");
     }
 
-    public String toString() {
-        return Color.ORANGE + """  
-                   
-                .( ).
-              .( 🔥🔥 ).
-             ( 🔥🔥🔥🔥 )
-            ( 🔥🔥🔥🔥🔥 )
-             ( 🔥🔥🔥🔥 )
-              '( 🔥 )'
-                ` `
-                
-                Nom : %s
-                Attaque augmentée de : %d
-                
-                """.formatted(getName(), getAtk()) + Color.RESET;
+    public String draw() {
+        return """  
+                    .( ).
+                  .( 🔥🔥 ).
+                 ( 🔥🔥🔥🔥 )
+                ( 🔥🔥🔥🔥🔥 )
+                 ( 🔥🔥🔥🔥 )
+                  '( 🔥 )'
+                    ` `
+                """;
+    }
+
+    public String getColor(){
+        return Color.YELLOW;
+
     }
 }
