@@ -20,9 +20,21 @@ public class TileEquipment extends Tile {
 
         Equipment actualEquipment = heros.getEquipment();
         menu.displayTileEquipment(this.content.toString());
-        this.content.interact(heros, menu);
+        int answer = menu.makeYourChoiceWithThisObject();
+                switch(answer){
+                    case 1: //use
+                        this.content.interact(heros, menu);
+                        break;
+                    case 2: //put on the bag
+                        heros.keepObjectOnTheBag(this.content);
+                        break;
+                    default: // let in place
+                        menu.youLetTheObject();
+                        break;
+                }
 
     }
+
 
 
 

@@ -419,6 +419,34 @@ public class Menu {
          return choice;
     }
 
+    public int makeYourChoiceWithThisObject(){
+    int answer = 0;
+            do {
+                try {
+                    System.out.println("""
+                            Que souhaitez-vous faire ?
+                            1 - Utiliser
+                            2 - Mettre dans le sac
+                            3 - Laisser
+                            """);
+                    answer = sc.nextInt();
+                    sc.nextLine();
+                    if (answer >= 1 && answer <= 3) {
+                        return answer;
+                    } else {
+                        System.out.println("Merci de saisir un chiffre entre 1 et 3.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Merci de saisir un chiffre.");
+                    sc.nextLine();
+                }
+            } while (answer <1 || answer > 3);
+            return answer;
+    }
+
+    public void youLetTheObject(){
+        System.out.println("Vous laissez l'objet dans le coffre où vous l'avez trouvé.");
+    }
 
     // ---------------------Tile Empty -----------------------------
 
@@ -456,57 +484,69 @@ public class Menu {
 
     public boolean displayBag(Equipment[] bag){
         int answer = 0;
-        do{
-            try{
-                System.out.println("Votre sac contient :");
-                for (int i=0 ; i<bag.length ; i++){
-                    System.out.println(i+1 + " - "+ bag[i].getName() + " - restaure "+ bag[i].getPv()+ " points de vie." );
+        int maxBagLength = 0;
+        if (bag !=null) {
+            do {
+                try {
+                    System.out.println("Votre sac contient :");
+                    for (int i = 0; i < bag.length; i++) {
+                        if(bag[i]!=null) {
+                            System.out.println(i + 1 + " - " + bag[i].getName() + " - restaure " + bag[i].getPv() + " points de vie.");
+                            maxBagLength += 1;
+                        }
+                    }
+                    System.out.println("""
+                            Souhaitez-vous prendre un objet ?
+                            1 - oui
+                            2 - non
+                            """);
+                    answer = sc.nextInt();
+                    sc.nextLine();
+                    if (answer == 1) {
+                        return true;
+                    } else if (answer == 2) {
+                        return false;
+                    } else {
+                        System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 1 et 2.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Merci de saisir uniquement un chiffre.");
+                    sc.nextLine();
                 }
-                System.out.println("""
-                        Souhaitez-vous prendre un objet ?
-                        1 - oui
-                        2 - non
-                        """);
-                answer = sc.nextInt();
-                sc.nextLine();
-                if (answer==1) {
-                    return true;
-                }else if(answer ==2){
-                    return false;
-                } else{
-                    System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 1 et 2.");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Merci de saisir uniquement un chiffre.");
-                sc.nextLine();
-            }
-        } while (answer<1 || answer>2);
-        return false;
+            } while (answer < 1 || answer > 2);
+        } else {
+            System.out.println("Votre sac est vide.");
+        }
+            return false;
     }
 
     public int displayWhatObjectDoYouWantToUse(Equipment[] bag){
          int answer = 0;
-         do{
-             try{
-                System.out.println("Votre sac contient :");
-                 for (int i=0 ; i<bag.length ; i++){
-                     System.out.println(i+1 + " - "+ bag[i].getName() + " - restaure "+ bag[i].getPv()+ " points de vie." );
+         int maxBagLength =0;
+             do {
+                 try {
+                     System.out.println("Votre sac contient :");
+                     for (int i = 0; i < bag.length; i++) {
+                         if (bag[i] != null) {
+                            System.out.println(i + 1 + " - " + bag[i].getName() + " - restaure " + bag[i].getPv() + " points de vie.");
+                            maxBagLength +=1;
+                         }
+                     }
+                     System.out.println("Quel objet souhaitez-vous prendre ? ");
+                     answer = sc.nextInt();
+                     sc.nextLine();
+                     if (answer > 0 && answer <= maxBagLength) {
+                         System.out.println("Vous avez sélectionné : " + bag[answer - 1] + ".");
+                         return answer - 1;
+                     } else {
+                         System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 1 et " + bag.length + ".");
+                     }
+                 } catch (InputMismatchException e) {
+                     System.out.println("Merci de saisir uniquement un chiffre.");
+                     sc.nextLine();
                  }
-                 System.out.println("Quel objet souhaitez-vous prendre ? ");
-                 answer = sc.nextInt();
-                 sc.nextLine();
-                 if (answer>0 && answer<=bag.length){
-                     System.out.println("Vous avez sélectionné : "+ bag[answer-1]+".");
-                     return answer-1;
-                 } else{
-                     System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 1 et "+ bag.length + ".");
-                 }
-             } catch (InputMismatchException e) {
-                 System.out.println("Merci de saisir uniquement un chiffre.");
-                 sc.nextLine();
-             }
-         } while (answer<=0 || answer>bag.length);
-         return answer;
+             } while (answer <= 0 || answer > maxBagLength);
+            return answer;
     }
 
     public int displayWhatDoYouWantToDoWithThisObject(String objectName){

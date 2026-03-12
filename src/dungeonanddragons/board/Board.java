@@ -53,7 +53,8 @@ public class Board {
                         }
                         break;
                     case 3: // use potion
-                        // à coder
+                        player.chooseObjectOnTheBag(menu);// à coder
+                        monsterTile.monsterAttack(player, menu);
                         break;
                 }
                 heroIsAlive = player.isHeroAlive();
