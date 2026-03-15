@@ -11,7 +11,7 @@ public abstract class Tile {
     }
 
 
-    public abstract void interact(Hero heros, Menu menu);
+    public abstract void interact( Menu menu, Hero heros);
 
 
 }

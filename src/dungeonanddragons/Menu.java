@@ -1,6 +1,5 @@
 package dungeonanddragons;
 
-import dungeonanddragons.Color;
 import dungeonanddragons.equipment.Equipment;
 
 import java.util.InputMismatchException;
@@ -364,6 +363,9 @@ public class Menu {
         return answer;
     }
 
+    public void bagEmpty(){
+        System.out.println("Votre sac est vide.");
+    }
 
     //-----------------------Tile Equipment-------------------------
     public void displayTileEquipment (String equipment){
@@ -382,6 +384,40 @@ public class Menu {
                 Vous refermez le coffre, déçu..
                 """);
 
+    }
+
+    public String displayChoiceToTakeEquipment(){
+        boolean bug = true;
+        int answer =0;
+        String choice = null;
+        while (bug){
+            try   {
+                System.out.println("""
+                         Souhaitez-vous récupérer cet équipement ?
+                         1 - Je prends !
+                         2 - Je préfère rester les mains vides.
+                         """);
+                answer = sc.nextInt();
+                sc.nextLine();
+                if (answer == 1){
+                    choice = "change";
+                    System.out.println("Vous avez récupéré l'équipement.");
+                    bug = false;
+
+                } else if (answer==2){
+                    choice = "keep";
+                    System.out.println("Vous conservez votre équipement.");
+                    bug = false;
+                } else {
+                    System.out.println("Merci de choisir entre 1 et 2.");
+                }
+
+            } catch (InputMismatchException e){
+                System.out.println("Merci de saisir un chiffre.");
+                sc.nextLine();
+            }
+        }
+        return choice;
     }
 
     public String displayChoiceToChangeEquipment(){
@@ -419,7 +455,7 @@ public class Menu {
          return choice;
     }
 
-    public int makeYourChoiceWithThisObject(){
+    public int askLootAction(){
     int answer = 0;
             do {
                 try {
@@ -440,8 +476,7 @@ public class Menu {
                     System.out.println("Merci de saisir un chiffre.");
                     sc.nextLine();
                 }
-            } while (answer <1 || answer > 3);
-            return answer;
+            } while (true);
     }
 
     public void youLetTheObject(){
@@ -456,7 +491,7 @@ public class Menu {
                 """);
     }
 
-    public boolean chooseWhatDoYouWantToDo(){
+    public boolean IsWantToSeeBag(){
         int answer = 0;
         do{
             try{
@@ -482,19 +517,23 @@ public class Menu {
         return false;
     }
 
-    public boolean displayBag(Equipment[] bag){
+    public void displayBag(Equipment[] items){
+        System.out.println("Votre sac contient :");
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] != null){
+                System.out.println(i + 1 + " - " + items[i].getName() + " - restaure " + items[i].getPv() + " points de vie.");
+
+            } else {
+                System.out.println(i + 1 + " - Vide");
+            }
+        }
+    }
+    public boolean askOpenBag(Equipment[] bag){
         int answer = 0;
-        int maxBagLength = 0;
         if (bag !=null) {
             do {
                 try {
-                    System.out.println("Votre sac contient :");
-                    for (int i = 0; i < bag.length; i++) {
-                        if(bag[i]!=null) {
-                            System.out.println(i + 1 + " - " + bag[i].getName() + " - restaure " + bag[i].getPv() + " points de vie.");
-                            maxBagLength += 1;
-                        }
-                    }
+                    displayBag(bag);
                     System.out.println("""
                             Souhaitez-vous prendre un objet ?
                             1 - oui
@@ -520,36 +559,32 @@ public class Menu {
             return false;
     }
 
-    public int displayWhatObjectDoYouWantToUse(Equipment[] bag){
-         int answer = 0;
-         int maxBagLength =0;
-             do {
-                 try {
-                     System.out.println("Votre sac contient :");
-                     for (int i = 0; i < bag.length; i++) {
-                         if (bag[i] != null) {
-                            System.out.println(i + 1 + " - " + bag[i].getName() + " - restaure " + bag[i].getPv() + " points de vie.");
-                            maxBagLength +=1;
-                         }
-                     }
-                     System.out.println("Quel objet souhaitez-vous prendre ? ");
-                     answer = sc.nextInt();
-                     sc.nextLine();
-                     if (answer > 0 && answer <= maxBagLength) {
-                         System.out.println("Vous avez sélectionné : " + bag[answer - 1] + ".");
-                         return answer - 1;
-                     } else {
-                         System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 1 et " + bag.length + ".");
-                     }
-                 } catch (InputMismatchException e) {
-                     System.out.println("Merci de saisir uniquement un chiffre.");
-                     sc.nextLine();
+    public int selectItem(Equipment[] items){
+         int answer = -1;
+         do {
+             try {
+                 displayBag(items);
+                 System.out.println("Veuillez sélectionner un objet. " +
+                         " 0 - annuler.");
+                 answer = sc.nextInt();
+                 sc.nextLine();
+                 if (answer == 0) {
+                     System.out.println("Action annulée");
+                     return -1;
+                 } else if (answer >= 1 && answer <= items.length && items[answer-1] != null) {
+                     System.out.println("Vous avez sélectionné : " + items[answer - 1] + ".");
+                     return answer - 1;
+                 } else {
+                     System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 0 et " + items.length + " et n'étant pas un emplacement vide.");
                  }
-             } while (answer <= 0 || answer > maxBagLength);
-            return answer;
+             } catch (InputMismatchException e) {
+                 System.out.println("Merci de saisir uniquement un chiffre.");
+                 sc.nextLine();
+             }
+         } while (true);
     }
 
-    public int displayWhatDoYouWantToDoWithThisObject(String objectName){
+    public int selectItemAction(String objectName){
         int answer = 0;
         do{
             try{
@@ -570,8 +605,7 @@ public class Menu {
                 System.out.println("Merci de saisir uniquement un chiffre.");
                 sc.nextLine();
             }
-        } while (answer<1 || answer>3);
-        return answer;
+        } while (true);
     }
 
     public void displayObjectHasBeenDestroyed(String objectName){
@@ -580,5 +614,8 @@ public class Menu {
 
     public void displayYouDoNothingWithBag(){
         System.out.println("Vous remettez l'objet à sa place et trouvez une autre occupation.");
+    }
+    public void displayCloseBag(){
+        System.out.println("Vous refermez le sac.");
     }
 }

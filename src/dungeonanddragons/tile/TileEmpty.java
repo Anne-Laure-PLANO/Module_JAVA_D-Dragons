@@ -4,30 +4,16 @@ import dungeonanddragons.Color;
 import dungeonanddragons.Menu;
 import dungeonanddragons.hero.Hero;
 
-public class TileEmpty extends  Tile{
+public class TileEmpty extends Tile{
 
     public TileEmpty (){
         super("empty");
     }
 
-    @Override
-    public void interact(Hero heros, Menu menu) {
+    public void interact(Menu menu, Hero heros) {
         menu.displayTileEmpty();
         System.out.println(fireCamp());
-        boolean readyToContinue = false;
-        do {
-            boolean wantToSeeBag = menu.chooseWhatDoYouWantToDo();
-            if (wantToSeeBag) {
-                boolean takeAnObject = menu.displayBag(heros.getBag());
-                if (takeAnObject) {
-                    heros.chooseObjectOnTheBag(menu);
-                } else {
-                    readyToContinue = true;
-                }
-            } else{
-                readyToContinue = true;
-            }
-        }while (!readyToContinue);
+
     }
 
 

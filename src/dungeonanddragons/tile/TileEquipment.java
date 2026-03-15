@@ -17,24 +17,25 @@ public class TileEquipment extends Tile {
 
 
     @Override
-    public void interact(Hero heros, Menu menu) {
+    public void interact( Menu menu, Hero heros) {
 
-        Equipment actualEquipment = heros.getEquipment();
         menu.displayTileEquipment(this.content.toString());
 
         if (this.getContent() instanceof Consumable) {
-            int answer = menu.makeYourChoiceWithThisObject();
+            int answer = menu.askLootAction();
             switch (answer) {
                 case 1: //use
                     this.content.interact(heros, menu);
                     break;
                 case 2: //put on the bag
-                    heros.keepObjectOnTheBag(this.content);
+                    heros.getBag().addItem(this.content);
                     break;
                 default: // let in place
                     menu.youLetTheObject();
                     break;
             }
+        } else{
+            getContent().interact(heros, menu);
         }
     }
 

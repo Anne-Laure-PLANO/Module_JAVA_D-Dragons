@@ -25,64 +25,79 @@ public class Board {
     }
 
     public void execTiles(int playerPosition, Hero player, Menu menu){
-        Equipment initialPlayerEquipment = player.getEquipment();
         Tile currentTile = this.getBoard()[playerPosition];
 
         if (currentTile instanceof TileMonster) {
+            execTileMonster(menu, currentTile, player, playerPosition);
 
-            TileMonster monsterTile = (TileMonster) currentTile;
-            menu.displayTileMonster(monsterTile.getContent().toString());
+        }
+        else if (currentTile instanceof TileEquipment){
+            execTileEquipment(menu, currentTile, player, playerPosition);
 
-            boolean monsterIsEscaped = monsterTile.getContent().isMonsterEscape(player.getPv());
-            if (monsterIsEscaped) {
-                moveTileMonster(currentTile, playerPosition);
-            }
+        }
+        else { // tileEmpty
+            execTileEmpty(menu, currentTile, player);
+        }
+    }
 
-            boolean heroIsEscaped = false;
-            boolean heroIsAlive = true;
-            while (monsterTile.isMonsterAlive() && heroIsEscaped == false && monsterIsEscaped == false && heroIsAlive) {
-                int userChoice = menu.displayIsWantToBattle();
-                switch (userChoice) {
-                    case 1:  //attaque le monstre
-                        currentTile.interact(player, menu);
-                        break;
-                    case 2:  //fuite du héros
-                        heroIsEscaped = player.canHeroEscape();
-                        if (!heroIsEscaped) {
-                            monsterTile.monsterAttack(player, menu);
-                        }
-                        break;
-                    case 3: // use potion
-                        player.chooseObjectOnTheBag(menu);// à coder
-                        monsterTile.monsterAttack(player, menu);
-                        break;
-                }
-                heroIsAlive = player.isHeroAlive();
-            }
+    public void execTileMonster(Menu menu, Tile currentTile, Hero player, int playerPosition){
 
+        TileMonster monsterTile = (TileMonster) currentTile;
+        menu.displayTileMonster(monsterTile.getContent().toString());
+
+        boolean monsterIsEscaped = monsterTile.getContent().isMonsterEscape(player.getPv());
+        boolean heroIsEscaped = false;
+        if (monsterIsEscaped) {
+            moveTileMonster(currentTile, playerPosition);
+        } else {
+            heroIsEscaped = monsterTile.executeCombat(menu, player);
             if (heroIsEscaped) {
                 player.backDown();
             }
-
-            if (monsterTile.isMonsterAlive() == false) {
+            if (!monsterTile.isMonsterAlive()) {
                 board[playerPosition] = new TileEmpty();
             }
         }
-        else if (currentTile instanceof TileEquipment){
-            currentTile.interact(player, menu);
-            if (player.getEquipment() != initialPlayerEquipment){
-                if (initialPlayerEquipment == null) {
-                    board[playerPosition] = new TileEmpty();
+
+
+
+
+
+
+
+    }
+
+    public void execTileEquipment(Menu menu, Tile currentTile, Hero player, int playerPosition){
+        Equipment initialPlayerEquipment = player.getEquipment();
+        currentTile.interact( menu, player);
+
+        if (player.getEquipment() != initialPlayerEquipment) {
+            if (initialPlayerEquipment == null) {
+                board[playerPosition] = new TileEmpty();
+            } else {
+                System.out.println("Vous laissez votre ancien équipement. ");
+                board[playerPosition] = new TileEquipment(initialPlayerEquipment);
+            }
+        }
+    }
+
+    public void execTileEmpty(Menu menu, Tile currentTile, Hero player){
+        boolean readyToContinue = false;
+        currentTile.interact(menu, player);
+
+        do {
+            if (player.getBag().isEmpty()){
+                menu.bagEmpty();
+                readyToContinue = true;
+            } else {
+                boolean wantToSeeBag = menu.askOpenBag(player.getBag().getSlots());
+                if (wantToSeeBag) {
+                    player.getBag().selectItem(menu, player);
                 } else {
-                    System.out.println("Vous laissez votre ancien équipement ");
-                    board[playerPosition] = new TileEquipment(initialPlayerEquipment);
+                    readyToContinue = true;
                 }
             }
-
-        }
-        else {
-            currentTile.interact(player, menu);
-        }
+        }while (!readyToContinue);
     }
 
     public void moveTileMonster(Tile MonsterTile, int heroPosition){

@@ -20,9 +20,13 @@ public abstract class WarriorEquipment extends Equipment {
     @Override
     public void interact(Hero heros, Menu menu){
         Equipment actualEquipment = heros.getEquipment();
+        String answer;
         if (isCompatible(heros.getType())){
-            String answer = menu.displayChoiceToChangeEquipment();
-
+            if (actualEquipment ==null){
+                answer = menu.displayChoiceToTakeEquipment();
+            } else{
+                answer = menu.displayChoiceToChangeEquipment();
+            }
             // option change
             if (answer.equals("change")){
                 heros.setEquipment(this);

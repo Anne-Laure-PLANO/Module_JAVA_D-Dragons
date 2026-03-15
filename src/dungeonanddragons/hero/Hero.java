@@ -1,10 +1,10 @@
 package dungeonanddragons.hero;
 
+import dungeonanddragons.Bag;
 import dungeonanddragons.Color;
 import dungeonanddragons.Menu;
 import dungeonanddragons.equipment.Equipment;
 
-import javax.management.modelmbean.RequiredModelMBean;
 import java.util.Random;
 
 public abstract class Hero {
@@ -14,7 +14,7 @@ public abstract class Hero {
     private final int maxPV;
     private int atk;
     private Equipment equipment;
-    private Equipment[] bag = new Equipment[6];
+    private Bag bag = new Bag(5);
     private int position;
     private Random rand = new Random();
 
@@ -76,7 +76,9 @@ public abstract class Hero {
         return result.toString();
     }
 
-
+    public void useObjectOnTheBag(int indexBag){
+        cure(getBag().getSlots()[indexBag].getPv());
+    }
 
 
     public abstract String getDraw();
@@ -151,45 +153,13 @@ public abstract class Hero {
        }
    }
 
-    public void keepObjectOnTheBag(Equipment object){
-        int emptyPocket =99;
-        for ( int i=0 ; i<bag.length ; i++){
-            if (bag[i] == null){
-                emptyPocket = i;
-                break;
-            }
-        }
-        if (emptyPocket !=99){
-            bag[emptyPocket] = object;
-        } else {
-            System.out.println("Action impossible ; le sac est plein.");
-        }
-    }
 
-    public void chooseObjectOnTheBag(Menu menu){
-        int indexObject = menu.displayWhatObjectDoYouWantToUse(getBag());
-        int chooseAction = menu.displayWhatDoYouWantToDoWithThisObject(getBag()[indexObject].getName());
-        switch (chooseAction) {
-            case 1:
-                useObjectOnTheBag(indexObject);
-                break;
-            case 2:
-                deleteObjectOnTheBag(indexObject, menu);
-                break;
-            default:
-                menu.displayYouDoNothingWithBag();
-                break;
-        }
-    }
 
-    public void deleteObjectOnTheBag(int objectEmplacment, Menu menu){
-        menu.displayObjectHasBeenDestroyed(getBag()[objectEmplacment].getName());
-        getBag()[objectEmplacment] = null;
-    }
 
-    public void useObjectOnTheBag(int objectEmplacment){
-        cure(getBag()[objectEmplacment].getPv());
-    }
+
+
+
+
 
 
 
@@ -245,11 +215,8 @@ public abstract class Hero {
         this.equipment = equipment;
     }
 
-    public Equipment[] getBag() {
+    public Bag getBag() {
         return bag;
     }
 
-    public void setBag(Equipment[] bag) {
-        this.bag = bag;
-    }
 }

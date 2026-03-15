@@ -14,7 +14,11 @@ public class TileMonster extends Tile {
 
 
     @Override
-    public void interact(Hero heros, Menu menu) {
+    public void interact(Menu menu, Hero player){
+
+    }
+
+    public void executeCombatRound(Hero heros, Menu menu) {
 
             // le héros attaque :
             heros.displayAttack();
@@ -33,6 +37,36 @@ public class TileMonster extends Tile {
             }
     }
 
+    public boolean executeCombat(Menu menu,Hero player){
+        boolean heroIsEscaped = false;
+        boolean heroIsAlive = true;
+        while (isMonsterAlive() && !heroIsEscaped &&  heroIsAlive) {
+            int userChoice = menu.displayIsWantToBattle();
+            switch (userChoice) {
+                case 1:  //attaque le monstre
+                    executeCombatRound(player, menu);
+                    break;
+                case 2:  //fuite du héros
+                    heroIsEscaped = player.canHeroEscape();
+                    if (!heroIsEscaped) {
+                        monsterAttack(player, menu);
+                    }
+                    break;
+                case 3: // use potion
+                    if (player.getBag().getSlots()!=null){
+                        player.getBag().selectItem(menu, player);
+                        monsterAttack(player, menu);
+                    } else {
+                        menu.bagEmpty();
+                        heroIsEscaped = executeCombat(menu, player);
+                    }
+                    break;
+            }
+            heroIsAlive = player.isHeroAlive();
+
+        }
+        return heroIsEscaped;
+    }
 
 
     public void monsterAttack(Hero heros,  Menu menu) {
