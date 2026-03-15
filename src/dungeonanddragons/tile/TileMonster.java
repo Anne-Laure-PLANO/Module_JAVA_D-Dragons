@@ -62,7 +62,7 @@ public class TileMonster extends Tile {
                     }
                     break;
             }
-            heroIsAlive = player.isHeroAlive();
+            heroIsAlive = player.isAlive();
 
         }
         return heroIsEscaped;

@@ -2,10 +2,11 @@ package dungeonanddragons.monster;
 
 
 import dungeonanddragons.Color;
+import dungeonanddragons.Combat;
 
 import java.util.Random;
 
-public abstract class Monster {
+public abstract class Monster implements Combat {
     private String type;
     private int pv;
     private int maxPV;
@@ -73,17 +74,21 @@ public abstract class Monster {
         return result.toString();
     }
 
-
+    @Override
     public void decreasePV (int damage ){
         if (this.getPv()> damage){
             this.pv -= damage;
         } else {
-            this.isKilled();
+            this.setPv(0);
         }
     }
-
-    public void isKilled (){
-        this.pv = 0;
+    @Override
+    public boolean isAlive (){
+        if (this.pv == 0){
+            return false;
+        } else {
+            return true;
+        }
     }
 
 

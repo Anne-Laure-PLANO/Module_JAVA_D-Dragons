@@ -119,7 +119,7 @@ public class Game {
 
                     board.execTiles(playerPosition, player, menu);
 
-                    if (player.isHeroAlive() == false) {
+                    if (player.isAlive() == false) {
                         status = "dead";
                     }
                     if (playerPosition == board.getBoardLength()-1){

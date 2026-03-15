@@ -2,12 +2,12 @@ package dungeonanddragons.hero;
 
 import dungeonanddragons.Bag;
 import dungeonanddragons.Color;
-import dungeonanddragons.Menu;
+import dungeonanddragons.Combat;
 import dungeonanddragons.equipment.Equipment;
 
 import java.util.Random;
 
-public abstract class Hero {
+public abstract class Hero implements Combat {
     private String pseudo;
     private String type;
     private int pv;
@@ -84,7 +84,7 @@ public abstract class Hero {
     public abstract String getDraw();
 
     public abstract void displayAttack();
-
+    @Override
     public void decreasePV (int damage){
        if (damage < this.getPv()){
            this.setPv(this.getPv()-damage);
@@ -92,8 +92,8 @@ public abstract class Hero {
            this.setPv(0);
        }
     }
-
-    public boolean isHeroAlive(){
+    @Override
+    public boolean isAlive(){
        if (this.getPv()>0){
            return true;
        }return false;
