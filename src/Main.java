@@ -1,11 +1,17 @@
 import dungeonanddragons.Game;
 import dungeonanddragons.exception.OutOfBoardException;
-import dungeonanddragons.hero.Hero;
-import dungeonanddragons.Menu;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/**
+ * Classe principale du jeu Donjon et Dragons.
+ * Point d'entrée de l'application.
+ * @author Anne-Laure PLANO
+ */
 public class Main {
+    /**
+     * Lance le jeu avec un plateau de 65 cases.
+     * @param args les arguments de la ligne de commande (non utilisés)
+     * @throws OutOfBoardException si un héros dépasse les limites du plateau
+     */
     public static void main(String[] args) throws OutOfBoardException {
         int boardLength = 65;
 

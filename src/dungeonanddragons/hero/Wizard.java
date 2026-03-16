@@ -1,15 +1,24 @@
 package dungeonanddragons.hero;
 
-
+/**
+ * Représente un mage dans le jeu Donjon et Dragons.
+ * Le mage possède 6 points de vie et 8 points d'attaque de base.
+ * @author Anne-Laure PLANO
+ */
 public class Wizard extends Hero {
-    private String pseudo;
 
+    /**
+     * Constructeur du mage.
+     * @param pseudo le nom du mage
+     */
     public Wizard(String pseudo ){
         super( pseudo, "Wizard",  6,  8,  null, 0);
     }
 
-
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String getDraw() {
         return """
                                     ____\s
@@ -37,6 +46,9 @@ public class Wizard extends Hero {
                 """;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void displayAttack() {
         System.out.println("""
@@ -45,12 +57,5 @@ public class Wizard extends Hero {
                 L'obscurité obéit.
                 """);
     }
-
-
-
-
-
-
-
 
 }

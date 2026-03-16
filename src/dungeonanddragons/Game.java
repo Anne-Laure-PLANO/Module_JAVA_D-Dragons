@@ -8,19 +8,37 @@ import dungeonanddragons.hero.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Classe principale gérant le déroulement du jeu Donjon et Dragons.
+ * Orchestre les interactions entre le héros, le plateau, les dés et le menu.
+ * @author Anne-Laure PLANO
+ */
 public class Game {
+
+    /** Le menu du jeu, gère l'affichage et les saisies */
     private Menu menu = new Menu();
+    /** Le dé utilisé pour les déplacements */
     private Dice dice = new Dice();
+    /** Le plateau de jeu */
     private Board board ;
+    /** La liste des héros participants */
     private List<Hero> heroes = new ArrayList<>();
 
+    /**
+     * Constructeur du jeu.
+     * @param boardLength la longueur du plateau de jeu
+     */
     public Game(int boardLength) {
         this.board = new Board(boardLength);
     }
 
 
     //---> tout commence ici
+    /**
+     * Point d'entrée du jeu. Affiche le message de bienvenue,
+     * initialise le plateau et lance le menu principal.
+     * @throws OutOfBoardException si un héros dépasse les limites du plateau
+     */
     public void start () throws OutOfBoardException {
         menu.welcome();
         board.initTiles();
@@ -28,7 +46,10 @@ public class Game {
     }
 
 // méthode de modif de perso à créer
-    //définit le choix de l'utilisateur.
+    /**
+     * Affiche le menu principal et redirige vers l'action choisie.
+     * @throws OutOfBoardException si un héros dépasse les limites du plateau
+     */
     public void startMenu () throws OutOfBoardException {
         int answer = menu.startMenu();
 
@@ -59,6 +80,11 @@ public class Game {
 
     /// /---------> méthode à reprendre ; non finie
 
+    /**
+     * Permet de modifier les informations d'un héros existant.
+     * Méthode en cours de développement.
+     * @throws OutOfBoardException si un héros dépasse les limites du plateau
+     */
     public void optionModifyCharacter() throws OutOfBoardException {
         boolean hasPlayer = verifyIfHasAPlayer();
         if (hasPlayer) {
@@ -83,6 +109,9 @@ public class Game {
 
     }
 
+    /**
+     * Affiche les informations de tous les héros de la liste.
+     */
     public void displayInfoHeroes(){
         for (Hero hero : heroes){
             System.out.println(hero.toString());
@@ -90,16 +119,23 @@ public class Game {
         }
     }
 
-
-    //lance les dés + affiche texte
+    /**
+     * Lance le dé et affiche le résultat.
+     * @param heroName le nom du héros qui lance les dés
+     * @param dice le dé à lancer
+     * @return le résultat du lancer de dés
+     */
     public int throwDice(String heroName, Dice dice){
         int resultDice = dice.roll();
         menu.displayThrowDice(heroName, resultDice);
         return resultDice;
     }
 
-
-        //démarre le jeu
+    /**
+     * Lance une partie. Les héros avancent tour par tour jusqu'à
+     * la victoire, la défaite ou la sortie du plateau.
+     * @throws OutOfBoardException si un héros dépasse les limites du plateau
+     */
     public void startGame() throws OutOfBoardException {
         String status = "onGame";
 
@@ -134,11 +170,18 @@ public class Game {
                     status = "win";
                 }
             }
-        }while (status == "onGame") ;
+        }while (status.equals("onGame")) ;
 
         this.endGame(status);
     }
 
+    /**
+     * Déplace le héros sur le plateau selon le résultat du dé.
+     * @param player le héros à déplacer
+     * @param dice le nombre de cases à avancer
+     * @return la nouvelle position du héros
+     * @throws OutOfBoardException si la nouvelle position dépasse les limites du plateau
+     */
     public int walk(Hero player, int dice) throws OutOfBoardException {
         int newPlayerPosition = player.getPosition() + dice;
 
@@ -150,7 +193,11 @@ public class Game {
         return newPlayerPosition;
     }
 
-
+    /**
+     * Vérifie si au moins un héros a été créé.
+     * Affiche un message si la liste est vide.
+     * @return true si la liste contient au moins un héros, false sinon
+     */
     public boolean verifyIfHasAPlayer(){
         if (heroes.isEmpty()) {
             menu.needPlayer();
@@ -160,9 +207,11 @@ public class Game {
         }
     }
 
-
-    // se sert des fonctions de Menu : chooseTypeOfHero() et choosePseudoOfHero()
-    //pour générer un nouveau héros.
+    /**
+     * Crée un nouveau héros selon les choix de l'utilisateur
+     * et l'ajoute à la liste des héros.
+     * @throws OutOfBoardException si un héros dépasse les limites du plateau
+     */
     public void createNewPlayer() throws OutOfBoardException {
         int typeChoice = menu.chooseTypeOfHero();
         String nameHero = menu.choosePseudoOfHero();
@@ -186,8 +235,11 @@ public class Game {
                 this.startMenu();
     }
 
-
- // menu de fin de jeu
+    /**
+     * Gère la fin de partie selon le statut de la partie.
+     * @param status "win" pour une victoire, "dead" pour une défaite
+     * @throws OutOfBoardException si un héros dépasse les limites du plateau
+     */
     public void endGame (String status) throws OutOfBoardException {
         if (status.equals("win")) {
             menu.displayVictory();
@@ -197,7 +249,11 @@ public class Game {
         this.restartMenu();
     }
 
-
+    /**
+     * Affiche le menu de fin de partie et redirige selon le choix.
+     * Réinitialise les héros en cas de nouvelle partie.
+     * @throws OutOfBoardException si un héros dépasse les limites du plateau
+     */
     public void restartMenu() throws OutOfBoardException {
         int answer = menu.displayRestartMenu();
         switch (answer) {
@@ -217,6 +273,9 @@ public class Game {
         }
     }
 
+    /**
+     * Affiche le message d'au revoir et quitte le jeu.
+     */
     public void quitGame(){
         menu.displayGoodBye();
         System.exit(0);

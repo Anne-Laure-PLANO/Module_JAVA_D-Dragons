@@ -4,31 +4,35 @@ import dungeonanddragons.Menu;
 import dungeonanddragons.equipment.Equipment;
 import dungeonanddragons.hero.Hero;
 
+/**
+ * Classe abstraite représentant un équipement de mage dans le jeu Donjon et Dragons.
+ * Un équipement de mage augmente les points d'attaque du héros
+ * et est réservé à un type de héros spécifique.
+ * @author Anne-Laure PLANO
+ */
 public abstract class WizardEquipment extends Equipment {
 
+    /**
+     * Constructeur d'un équipement de mage.
+     * @param name le nom de l'équipement
+     * @param atk les points d'attaque supplémentaires
+     * @param userType le type de héros autorisé à utiliser l'équipement
+     */
     public WizardEquipment(String name, int atk, String userType){
         super(name, atk, 0, userType);
     }
 
-
-
-
+    /**
+     * {@inheritDoc}
+     */
     public abstract String draw();
 
+    /**
+     * {@inheritDoc}
+     */
     public abstract String getColor();
 
-    @Override
-    public void interact(Hero heros, Menu menu){
-        if (isCompatible(heros.getType())){
-            String answer = menu.displayChoiceToChangeEquipment();
 
-            if (answer.equals("change")){
-                heros.setEquipment(this);
-            }
-        } else {
-            menu.displayEquipmentIsIncompatible();
-        }
-    }
 
 
 

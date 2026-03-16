@@ -5,6 +5,7 @@ out/
 .kotlin
 .idea/
 *.iml
+/doc
 
 ### Fichiers confidentiels  ###
 DatabaseConnection.java

@@ -8,11 +8,22 @@
 //import java.util.ArrayList;
 //import java.util.List;
 //
-//
+///**
+// * Classe DAO (Data Access Object) gérant la persistance des héros en base de données.
+// * Permet la sauvegarde et le chargement des héros depuis une base MariaDB.
+// *
+// * TODO : classe en cours de développement — la liaison BDD est à finaliser.
+// * Le code est commenté dans l'attente d'une meilleure compréhension de la couche DAO.
+// * @author Anne-Laure PLANO
+// */
 //public class HeroDAO {
 //
 //
-//
+//     /**
+//     * Sauvegarde un héros et son équipement en base de données.
+//     * @param hero le héros à sauvegarder
+//     * @throws Exception si la connexion ou la requête échoue
+//     */
 //    public void saveHero(Hero hero) throws Exception {
 //        int EquipmentId = saveEquipment(hero.getEquipment());
 //
@@ -35,7 +46,12 @@
 //        }
 //    }
 //
-//    // Sauvegarder l'équipement et retourner son Id
+//    /**
+//     * Sauvegarde un équipement en base de données et retourne son identifiant généré.
+//     * @param equipment l'équipement à sauvegarder
+//     * @return l'identifiant généré en base
+//     * @throws Exception si la connexion ou la requête échoue
+//     */
 //    private int saveEquipment(OffensiveEquipment equipment) throws Exception {
 //        String sql = "INSERT INTO Equipment (Name, Type, ATK) VALUES (?, ?, ?)";
 //        try (Connection conn = DatabaseConnection.getConnection();
@@ -50,7 +66,11 @@
 //        throw new Exception("Erreur lors de la sauvegarde de l'équipement");
 //    }
 //
-//
+// /**
+//     * Charge tous les héros depuis la base de données.
+//     * @return la liste de tous les héros
+//     * @throws Exception si la connexion ou la requête échoue
+//     */
 //    public List<Hero> chargeAll() throws Exception {
 //        List<Hero> heroes = new ArrayList<>();
 //        String sql = "SELECT h.*, e.Name AS EqName, e.Type AS EqType, e.ATK AS EqATK " +
@@ -78,7 +98,12 @@
 //        return heroes;
 //    }
 //
-//    // Charger un héros par pseudo
+//    /**
+//     * Charge un héros depuis la base de données par son pseudo.
+//     * @param pseudo le pseudo du héros à charger
+//     * @return le héros correspondant, ou null s'il n'existe pas
+//     * @throws Exception si la connexion ou la requête échoue
+//     */
 //    public Hero chargeHero(String pseudo) throws Exception {
 //        String sql = "SELECT h.*, e.Name AS EqName, e.Type AS EqType, e.ATK AS EqATK " +
 //                "FROM Hero h LEFT JOIN Equipment e ON h.EquipmentId = e.Id " +
