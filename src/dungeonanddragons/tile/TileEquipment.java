@@ -5,17 +5,31 @@ import dungeonanddragons.equipment.Equipment;
 import dungeonanddragons.equipment.consumable.Consumable;
 import dungeonanddragons.hero.Hero;
 
-
+/**
+ * Représente une tuile contenant un équipement dans le jeu Donjon et Dragons.
+ * Lorsque le héros arrive sur cette tuile, il peut interagir avec l'équipement.
+ * @author Anne-Laure PLANO
+ */
 public class TileEquipment extends Tile {
 
-        private Equipment content = null;
+    /** L'équipement contenu dans la tuile */
+    private Equipment content = null;
 
-        public TileEquipment(Equipment content){
-            super("equipment");
-            this.content = content;
-        }
+    /**
+     * Constructeur de la tuile équipement.
+     * @param content l'équipement contenu dans la tuile
+     */
+    public TileEquipment(Equipment content){
+        super("equipment");
+        this.content = content;
+    }
 
-
+    /**
+     * {@inheritDoc}
+     * Si le contenu est un consommable, propose au héros de l'utiliser,
+     * de le mettre dans son sac ou de le laisser.
+     * Sinon, déclenche directement l'interaction avec l'équipement.
+     */
     @Override
     public void interact( Menu menu, Hero heros) {
 
@@ -39,14 +53,19 @@ public class TileEquipment extends Tile {
         }
     }
 
-
-
-
+    /**
+     * Retourne l'équipement contenu dans la tuile.
+     * @return l'équipement de la tuile
+     */
     public Equipment getContent(){
             return this.content;
         }
 
-        public void setContent(Equipment content) {
+    /**
+     * Modifie l'équipement contenu dans la tuile.
+     * @param content le nouvel équipement
+     */
+    public void setContent(Equipment content) {
             this.content = content;
         }
 

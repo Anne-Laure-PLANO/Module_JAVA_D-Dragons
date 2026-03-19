@@ -14,16 +14,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Représente le plateau de jeu dans le jeu Donjon et Dragons.
+ * Gère l'initialisation, le contenu des tuiles et les interactions du héros avec celles-ci.
+ * @author Anne-Laure PLANO
+ */
 public class Board {
+
+    /** Générateur de nombres aléatoires */
     private Random rand = new Random();
+    /** La longueur du plateau */
     private int boardLength;
+    /** Le tableau de tuiles constituant le plateau */
     private Tile[] board ;
 
+    /**
+     * Constructeur du plateau.
+     * @param boardLength la longueur du plateau
+     */
     public Board(int boardLength){
         this.boardLength = boardLength;
         this.board = new Tile[boardLength];
     }
 
+    /**
+     * Exécute l'interaction entre le héros et la tuile à sa position actuelle.
+     * @param playerPosition la position actuelle du héros
+     * @param player le héros
+     * @param menu le menu du jeu
+     */
     public void execTiles(int playerPosition, Hero player, Menu menu){
         Tile currentTile = this.getBoard()[playerPosition];
 
@@ -40,6 +59,15 @@ public class Board {
         }
     }
 
+    /**
+     * Gère l'interaction avec une tuile monstre.
+     * Le monstre peut fuir ou engager le combat avec le héros.
+     * Si le monstre est vaincu, la tuile devient vide.
+     * @param menu le menu du jeu
+     * @param currentTile la tuile courante
+     * @param player le héros
+     * @param playerPosition la position du héros sur le plateau
+     */
     public void execTileMonster(Menu menu, Tile currentTile, Hero player, int playerPosition){
 
         TileMonster monsterTile = (TileMonster) currentTile;
@@ -58,15 +86,17 @@ public class Board {
                 board[playerPosition] = new TileEmpty();
             }
         }
-
-
-
-
-
-
-
     }
 
+    /**
+     * Gère l'interaction avec une tuile équipement.
+     * Si le héros change d'équipement, l'ancien équipement reste sur la tuile
+     * ou la tuile devient vide s'il n'en avait pas.
+     * @param menu le menu du jeu
+     * @param currentTile la tuile courante
+     * @param player le héros
+     * @param playerPosition la position du héros sur le plateau
+     */
     public void execTileEquipment(Menu menu, Tile currentTile, Hero player, int playerPosition){
         Equipment initialPlayerEquipment = player.getEquipment();
         currentTile.interact( menu, player);
@@ -81,6 +111,13 @@ public class Board {
         }
     }
 
+    /**
+     * Gère l'interaction avec une tuile vide.
+     * Propose au héros d'ouvrir son sac s'il n'est pas vide.
+     * @param menu le menu du jeu
+     * @param currentTile la tuile courante
+     * @param player le héros
+     */
     public void execTileEmpty(Menu menu, Tile currentTile, Hero player){
         boolean readyToContinue = false;
         currentTile.interact(menu, player);
@@ -100,6 +137,12 @@ public class Board {
         }while (!readyToContinue);
     }
 
+    /**
+     * Déplace un monstre vers une tuile vide disponible devant le héros.
+     * Si aucune tuile vide n'est disponible devant, cherche sur tout le plateau.
+     * @param MonsterTile la tuile monstre à déplacer
+     * @param heroPosition la position actuelle du héros
+     */
     public void moveTileMonster(Tile MonsterTile, int heroPosition){
         List<Integer> listOfPossibility = getAvailableEmptyTiles(heroPosition);
         if (!listOfPossibility.isEmpty()){
@@ -112,7 +155,11 @@ public class Board {
         }
     }
 
-
+    /**
+     * Retourne la liste des index des tuiles vides disponibles après la position du héros.
+     * @param heroPosition la position actuelle du héros
+     * @return la liste des index des tuiles vides disponibles
+     */
     public List<Integer> getAvailableEmptyTiles( int heroPosition){
         List<Integer> availableEmptyTiles = new ArrayList<>();
 
@@ -124,7 +171,11 @@ public class Board {
         return availableEmptyTiles;
     }
 
-
+    /**
+     * Initialise les tuiles du plateau aléatoirement.
+     * La première et la dernière tuile sont toujours vides.
+     * Les autres tuiles sont des monstres, des équipements ou des tuiles vides.
+     */
     public void initTiles(){
         board[0] = new TileEmpty();
         board[this.getBoardLength()-1] = new TileEmpty();
@@ -146,6 +197,10 @@ public class Board {
         }
     }
 
+    /**
+     * Choisit aléatoirement un équipement pour une tuile équipement.
+     * @return l'équipement choisi
+     */
     public Equipment chooseEquipmentForTileEquipment(){
 
         int typeOfEquipment = rand.nextInt(6)+1;
@@ -173,6 +228,10 @@ public class Board {
         return newEquipment;
     }
 
+    /**
+     * Choisit aléatoirement un monstre pour une tuile monstre.
+     * @return le monstre choisi
+     */
     public Monster chooseMonsterForTileMonster(){
 
         int typeOfMonster = rand.nextInt(3)+1;
@@ -190,7 +249,6 @@ public class Board {
         }
         return newMonster;
     }
-
 
     public Tile[] getBoard() {
         return board;

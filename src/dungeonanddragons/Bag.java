@@ -6,13 +6,29 @@ import dungeonanddragons.hero.Hero;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Représente le sac d'un héros dans le jeu Donjon et Dragons.
+ * Le sac contient un nombre limité d'emplacements pour stocker des équipements.
+ * @author Anne-Laure PLANO
+ */
 public class Bag {
+
+    /** Les emplacements du sac, chacun pouvant contenir un équipement */
     private Equipment[] slots;
 
+    /**
+     * Constructeur du sac.
+     * @param bagLength le nombre d'emplacements du sac
+     */
     public Bag(int bagLength){
         this.slots = new Equipment[bagLength];
     }
 
+    /**
+     * Ajoute un équipement dans le premier emplacement libre du sac.
+     * Affiche un message si le sac est plein.
+     * @param object l'équipement à ajouter
+     */
     public void addItem(Equipment object){
         boolean hasEmptyPocket = false;
         int index = 0;
@@ -30,6 +46,11 @@ public class Bag {
         }
     }
 
+    /**
+     * Permet au héros de sélectionner et d'utiliser ou supprimer un objet du sac.
+     * @param menu le menu du jeu
+     * @param hero le héros qui utilise le sac
+     */
     public void selectItem(Menu menu, Hero hero){
         int indexObject = menu.selectItem(slots);
         if  (indexObject == -1){
@@ -49,12 +70,13 @@ public class Bag {
                     menu.displayYouDoNothingWithBag();
                     break;
             }
-
         }
     }
 
-
-
+    /**
+     * Vérifie si le sac est vide.
+     * @return true si tous les emplacements sont vides, false sinon
+     */
     public boolean isEmpty() {
         for (Equipment slot : slots) {
             if (slot != null) return false;
@@ -62,13 +84,19 @@ public class Bag {
         return true;
     }
 
-
-
-
-    public void deleteObject(int indexBag){
-        getBag()[indexBag] = null;
+    /**
+     * Supprime un équipement du sac à l'index donné.
+     * @param indexBag l'index de l'équipement à supprimer
+     * @param menu le menu du jeu
+     */
+    public void deleteObjectOnTheBag(int indexBag, Menu menu) {
+        menu.displayObjectHasBeenDestroyed(getBag()[indexBag].getName());
 
     }
+
+    public void deleteObject(int indexBag){
+            getBag()[indexBag] = null;
+        }
 
     public Equipment[] getBag() {
         return slots;

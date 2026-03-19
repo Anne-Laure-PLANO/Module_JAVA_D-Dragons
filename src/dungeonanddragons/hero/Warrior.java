@@ -1,13 +1,24 @@
 package dungeonanddragons.hero;
 
-
+/**
+ * Représente un guerrier dans le jeu Donjon et Dragons.
+ * Le guerrier possède 10 points de vie et 5 points d'attaque de base.
+ * @author Anne-Laure PLANO
+ */
 public class Warrior extends Hero {
 
+    /**
+     * Constructeur du guerrier.
+     * @param pseudo le nom du guerrier
+     */
     public Warrior(String pseudo) {
         super(pseudo, "Warrior", 10, 5, null, 0);
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String getDraw() {
         return  """
                  /\\
@@ -37,6 +48,9 @@ public class Warrior extends Hero {
                 """;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void displayAttack() {
         System.out.println("""

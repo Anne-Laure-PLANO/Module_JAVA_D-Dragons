@@ -1,5 +1,9 @@
 package dungeonanddragons;
 
+/**
+ * Constantes de couleurs ANSI pour l'affichage en console.
+ * @author Anne-Laure PLANO
+ */
 public class Color {
         public static final String RESET  = "\u001B[0m";
         public static final String RED    = "\u001B[31m";

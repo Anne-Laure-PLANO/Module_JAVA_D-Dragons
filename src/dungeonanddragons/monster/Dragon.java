@@ -4,18 +4,32 @@ package dungeonanddragons.monster;
 import dungeonanddragons.Color;
 import dungeonanddragons.hero.Hero;
 
+/**
+ * Représente un dragon dans le jeu Donjon et Dragons.
+ * Le dragon possède 15 points de vie et 4 points d'attaque.
+ * Il a peu de chances de fuir (10%) et ne fuit jamais s'il peut tuer le héros.
+ * @author Anne-Laure PLANO
+ */
 public class Dragon extends Monster {
 
-
+    /**
+     * Constructeur du dragon.
+     */
     public Dragon() {
         super("Dragon", 15, 4);
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void displayAttack() {
         System.out.println("Le Dragon vous attaque ! ");
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void displayDefense() {
         System.out.println("""
@@ -25,6 +39,10 @@ public class Dragon extends Monster {
                 """);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void displayIsKilled() {
         System.out.println("""
                 Le dragon pousse un dernier rugissement avant de s'effondrer, faisant trembler les murs du donjon.
@@ -34,6 +52,11 @@ public class Dragon extends Monster {
         );
     }
 
+    /**
+     * {@inheritDoc}
+     * Le dragon ne fuit jamais s'il peut tuer le héros en un coup,
+     * sinon il a 10% de chances de fuir.
+     */
     @Override
     public int percentageChanceToEscape(int pvHeros) {
         if (getAtk()>= pvHeros) {
@@ -43,14 +66,26 @@ public class Dragon extends Monster {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void displayEscape() {
         System.out.println("Sans chercher à vous affronter, le dragon disparait dans les ténèbres du chemin.");
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String getColor() {
         return Color.RED;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public String drawMonster() {
         return """
                              ^                       ^

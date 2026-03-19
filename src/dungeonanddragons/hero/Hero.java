@@ -2,22 +2,50 @@ package dungeonanddragons.hero;
 
 import dungeonanddragons.Bag;
 import dungeonanddragons.Color;
-import dungeonanddragons.Menu;
+import dungeonanddragons.Combat;
 import dungeonanddragons.equipment.Equipment;
 
 import java.util.Random;
 
-public abstract class Hero {
+/**
+ * Classe abstraite représentant un héros dans le jeu Donjon et Dragons.
+ * Tout héros possède un pseudo, un type, des points de vie, une attaque,
+ * un équipement et un sac. Il implémente l'interface {@link Combat}.
+ * @author Anne-Laure PLANO
+ */
+public abstract class Hero implements Combat {
+
+
+
+    /** Le nom du héros */
     private String pseudo;
+    /** Le type du héros (guerrier, mage...) */
     private String type;
+    /** Les points de vie actuels du héros */
     private int pv;
+    /** Les points de vie maximum du héros */
     private final int maxPV;
+    /** Les points d'attaque du héros */
     private int atk;
+    /** L'équipement porté par le héros */
     private Equipment equipment;
+    /** Le sac du héros, contenant jusqu'à 5 objets */
     private Bag bag = new Bag(5);
+    /** La position actuelle du héros sur le plateau */
     private int position;
+    /** Générateur de nombres aléatoires */
     private Random rand = new Random();
 
+
+    /**
+     * Constructeur d'un héros.
+     * @param pseudo le nom du héros
+     * @param type le type du héros (guerrier, mage...)
+     * @param maxPV les points de vie maximum
+     * @param atk les points d'attaque
+     * @param equipment l'équipement de départ
+     * @param position la position de départ sur le plateau
+     */
     public  Hero(String pseudo , String type, int maxPV, int atk, Equipment equipment, int position){
         this.pseudo = pseudo;
         this.type = type;
@@ -76,15 +104,29 @@ public abstract class Hero {
         return result.toString();
     }
 
+    /**
+     * Utilise un objet du sac à l'index donné pour soigner le héros.
+     * @param indexBag l'index de l'objet dans le sac
+     */
     public void useObjectOnTheBag(int indexBag){
         cure(getBag().getSlots()[indexBag].getPv());
     }
 
-
+    /**
+     * Retourne le dessin ASCII propre à chaque héros.
+     * @return le dessin sous forme de String
+     */
     public abstract String getDraw();
 
+    /**
+     * Affiche le message d'attaque propre à chaque héros.
+     */
     public abstract void displayAttack();
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public void decreasePV (int damage){
        if (damage < this.getPv()){
            this.setPv(this.getPv()-damage);
@@ -93,12 +135,19 @@ public abstract class Hero {
        }
     }
 
-    public boolean isHeroAlive(){
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean isAlive(){
        if (this.getPv()>0){
            return true;
        }return false;
     }
 
+    /**
+     * Affiche un message de victoire après un combat.
+     */
     public void displayVictoryCombat(){
         System.out.println("""
                 Votre cri de victoire résonne dans toute la salle. 
@@ -107,6 +156,10 @@ public abstract class Hero {
                 """);
     }
 
+    /**
+     * Soigne le héros en ajoutant des points de vie.
+     * @param quantity le nombre de points de vie restaurés
+     */
     public void cure(int quantity){
         int newPV = this.getPv()+ quantity;
 
@@ -117,11 +170,13 @@ public abstract class Hero {
         } else {
             this.setPv(newPV);
             System.out.println("Le héros a retrouvé un peu de son énergie.");
-
-
         }
     }
 
+    /**
+     * Retourne l'attaque totale du héros, équipement inclus.
+     * @return la somme de l'attaque de base et de l'attaque de l'équipement
+     */
     public int getAtkTotal(){
         if (this.getEquipment()==null){
             return this.getAtk();
@@ -130,6 +185,10 @@ public abstract class Hero {
         }
     }
 
+    /**
+     * Tente une fuite aléatoire (50% de chances de réussite).
+     * @return true si la fuite réussit, false sinon
+     */
     public boolean canHeroEscape(){
        int possibility = rand.nextInt(100)+1;
        if  (possibility >= 50){
@@ -142,6 +201,9 @@ public abstract class Hero {
        }
     }
 
+    /**
+     * Fait reculer le héros d'un nombre aléatoire de cases (1 à 6).
+     */
     public void backDown(){
        int goBack = rand.nextInt(6)+1;
        if (this.getPosition() >= goBack){
@@ -152,13 +214,6 @@ public abstract class Hero {
            System.out.println("Vous retournez à la case départ.");
        }
    }
-
-
-
-
-
-
-
 
 
 
