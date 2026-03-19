@@ -39,9 +39,11 @@ public class Bag {
             switch (chooseAction) {
                 case 1:
                     hero.useObjectOnTheBag(indexObject);
+                    deleteObject(indexObject);
                     break;
                 case 2:
-                    deleteObjectOnTheBag(indexObject, menu);
+                    menu.displayObjectHasBeenDestroyed(getSlots()[indexObject].getName());
+                    deleteObject(indexObject);
                     break;
                 default:
                     menu.displayYouDoNothingWithBag();
@@ -61,11 +63,12 @@ public class Bag {
     }
 
 
-    public void deleteObjectOnTheBag(int indexBag, Menu menu){
-        menu.displayObjectHasBeenDestroyed(getBag()[indexBag].getName());
-        getBag()[indexBag] = null;
-    }
 
+
+    public void deleteObject(int indexBag){
+        getBag()[indexBag] = null;
+
+    }
 
     public Equipment[] getBag() {
         return slots;
