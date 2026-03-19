@@ -153,6 +153,7 @@ public class Board {
             int newPosition = rand.nextInt(listOfAllPossibility.size());
             board[listOfAllPossibility.get(newPosition)] = MonsterTile;
         }
+        board[heroPosition] = new TileEmpty();
     }
 
     /**

@@ -72,9 +72,9 @@ public abstract class Hero implements Combat {
                       Type  %s
                       
               %s  Points d'attaque -> %d  %s
-                %s   Points de vie -> %d  %s 
+               %s Points de vie -> %d / %d %s 
                    
-                  %s Equipment -> %s  %s
+                  %s Equipement -> %s  %s
                   ATK suppl. ->%s %s  %s
               
                      %s - Position %s - %s
@@ -85,7 +85,7 @@ public abstract class Hero implements Combat {
                 Color.CYAN , pseudo , Color.RESET,
                 type,
                 Color.RED , atk , Color.RESET,
-                Color.GREEN, pv , Color.RESET,
+                Color.GREEN, pv , maxPV, Color.RESET,
                 Color.SILVER_BRIGHT, equipmentString, Color.RESET,
                 Color.RED, equipmentAtk, Color.RESET,
                 Color.CYAN, position, Color.RESET
@@ -187,7 +187,7 @@ public abstract class Hero implements Combat {
        int possibility = rand.nextInt(100)+1;
        if  (possibility >= 50){
 
-           System.out.printf("Vous réussissez à fuir.");
+           System.out.println("Vous réussissez à fuir.");
            return true;
        } else {
            System.out.println("Votre adversaire vous barre le passage : vous n'avez pas réussi à vous échapper.");

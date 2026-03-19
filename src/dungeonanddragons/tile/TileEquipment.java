@@ -42,7 +42,8 @@ public class TileEquipment extends Tile {
                     this.content.interact(heros, menu);
                     break;
                 case 2: //put on the bag
-                    heros.getBag().addItem(this.content);
+                    heros.getBag().addItem(this.content, menu);
+                    menu.displayPutOnTheBag();
                     break;
                 default: // let in place
                     menu.youLetTheObject();

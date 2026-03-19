@@ -22,13 +22,19 @@ public class Fireball extends WizardEquipment {
     @Override
     public String draw() {
         return """  
-                    .( ).
-                  .( 🔥🔥 ).
-                 ( 🔥🔥🔥🔥 )
-                ( 🔥🔥🔥🔥🔥 )
-                 ( 🔥🔥🔥🔥 )
-                  '( 🔥 )'
-                    ` `
+                     
+                             
+                             
+                             .( ).
+                          .( 🔥🔥 ).
+                         ( 🔥🔥🔥🔥 )
+                        ( 🔥🔥🔥🔥🔥 )
+                         ( 🔥🔥🔥🔥 )
+                           '( 🔥 )'
+                              ` `
+               
+               
+               
                 """;
     }
 

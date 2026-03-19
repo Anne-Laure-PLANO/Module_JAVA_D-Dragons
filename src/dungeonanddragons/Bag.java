@@ -29,7 +29,7 @@ public class Bag {
      * Affiche un message si le sac est plein.
      * @param object l'équipement à ajouter
      */
-    public void addItem(Equipment object){
+    public void addItem(Equipment object, Menu menu){
         boolean hasEmptyPocket = false;
         int index = 0;
         for ( int i=0 ; i<slots.length ; i++){

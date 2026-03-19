@@ -692,7 +692,7 @@ public class Menu {
                      System.out.println("Action annulée");
                      return -1;
                  } else if (answer >= 1 && answer <= items.length && items[answer-1] != null) {
-                     System.out.println("Vous avez sélectionné : " + items[answer - 1] + ".");
+                     System.out.println("Vous avez sélectionné : \n" + items[answer - 1] + ".");
                      return answer - 1;
                  } else {
                      System.out.println("Erreur : Merci de sélectionner un chiffre compris entre 0 et " + items.length + " et n'étant pas un emplacement vide.");
@@ -733,10 +733,9 @@ public class Menu {
         } while (true);
     }
 
-    public void displayObjectIsUsed (){
-        System.out.println("Vous buvez la potion et retrouvez des points de vie.");
+    public void displayPutOnTheBag(){
+        System.out.println("Vous glissez l'objet dans votre sac.");
     }
-
 
     /**
      * Affiche un message de confirmation de destruction d'un objet.
