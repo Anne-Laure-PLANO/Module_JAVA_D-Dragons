@@ -3,6 +3,7 @@ package dungeonanddragons.hero;
 import dungeonanddragons.Bag;
 import dungeonanddragons.Color;
 import dungeonanddragons.Combat;
+import dungeonanddragons.Menu;
 import dungeonanddragons.equipment.Equipment;
 
 import java.util.Random;
@@ -104,13 +105,6 @@ public abstract class Hero implements Combat {
         return result.toString();
     }
 
-    /**
-     * Utilise un objet du sac à l'index donné pour soigner le héros.
-     * @param indexBag l'index de l'objet dans le sac
-     */
-    public void useObjectOnTheBag(int indexBag){
-        cure(getBag().getSlots()[indexBag].getPv());
-    }
 
     /**
      * Retourne le dessin ASCII propre à chaque héros.

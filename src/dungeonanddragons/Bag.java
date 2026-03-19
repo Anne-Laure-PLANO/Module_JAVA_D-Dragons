@@ -59,7 +59,7 @@ public class Bag {
             int chooseAction = menu.selectItemAction(slots[indexObject].getName());
             switch (chooseAction) {
                 case 1:
-                    hero.useObjectOnTheBag(indexObject);
+                    hero.cure(getSlots()[indexObject].getPv());
                     deleteObject(indexObject);
                     break;
                 case 2:

@@ -733,6 +733,11 @@ public class Menu {
         } while (true);
     }
 
+    public void displayObjectIsUsed (){
+        System.out.println("Vous buvez la potion et retrouvez des points de vie.");
+    }
+
+
     /**
      * Affiche un message de confirmation de destruction d'un objet.
      * @param objectName le nom de l'objet détruit
